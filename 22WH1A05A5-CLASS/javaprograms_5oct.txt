@@ -1,0 +1,110 @@
+\\program to take marks as input and calculate percentage of a student
+import java.util.Scanner;
+public class Percentage{
+    public static void main(String args[]){
+        int maths;
+        int physics;
+        int chemistry;
+        float percentage;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("maths marks are:");
+        maths = sc.nextInt();
+        System.out.print("physics marks are:");
+        physics = sc.nextInt();
+        System.out.print("chemistry marks are:");
+        chemistry = sc.nextInt();
+        percentage = ((maths+physics+chemistry)*100/300);
+        System.out.print("percentage of the student is"+percentage);
+        
+        
+        
+        
+        
+    }
+}
+
+
+
+
+
+
+import java.util.Scanner;
+public class Name{
+    public static void main(String args[]){
+        String name;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter name:");
+        name = sc.next();
+        System.out.print("hello  "+ name);
+    }
+}
+
+
+
+
+
+
+
+import java.util.Scanner;
+public class Name{
+    public static void main(String args[]){
+        String name;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter name:");
+        name = sc.next();
+        System.out.println(name.toLowerCase());
+    }
+}
+
+
+
+
+
+
+import java.util.Scanner;
+class Passorfail{
+    public static void main(String args[]){
+        int marks;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter marks:");
+        marks = sc.nextInt();
+        if (marks<30)
+        {
+            System.out.println("fail");
+        }
+        else
+        {
+            System.out.print("pass");
+        }
+    }
+}
+
+
+
+
+public class Naturalnumbers{
+    public static void main(String[] args){
+        int i;
+        for (i=0;i<=20;i++){
+        System.out.println(i);
+            
+        }
+    }
+}
+
+
+
+public class Evenumbers{
+    public static void main(String[] args){
+        int i;
+        for (i=0;i<=50;i++){
+            if(i%2==0)
+        System.out.println(i);
+            
+        }
+    }
+}
+
+
+
+
