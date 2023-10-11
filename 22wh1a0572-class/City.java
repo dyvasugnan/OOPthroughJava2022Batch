@@ -2,7 +2,7 @@ import java.util.*;
 
 public class City {
     public static void main(String[] args) {
-        BufferedReader  br=new BufferedReader(new InputStreamReader(System.in);
+        BufferedReader  br=new BufferedReader(new InputStreamReader(System.in));
 	String[] cities = new String[10];
         System.out.println("Enter cities: ");
 
