@@ -5,9 +5,8 @@ class ConcatArrayFirst{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String city[] = new String[10];
         String firLets = "";
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) 
             city[i] = br.readLine();
-        }
         for (int i = 0; i < 10; i++) {
                 char firLet = city[i].charAt(0);
                 firLets += firLet;
