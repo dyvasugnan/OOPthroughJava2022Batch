@@ -1,0 +1,18 @@
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+public class AddingStartingLetters{
+	public static void main(String[] args)throws IOException{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		String input_string=br.readLine();
+		StringTokenizer words=new StringTokenizer(input_string," ");
+		int t=words.countTokens();
+		input_string+=" ";
+		for(int i=0;i<t;i++){
+			input_string+=words.nextToken().charAt(0);
+		}
+		System.out.println(input_string);
+	}
+}
+
+
