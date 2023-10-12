@@ -1,5 +1,5 @@
 import java.util.*;
-public class Capitalize {
+public class Capitalized_firstletter {
     public static void main(String[] args) {
         String s = "welcome to java programming language";
         String result = capitalize(s);
@@ -7,7 +7,7 @@ public class Capitalize {
         System.out.println("capatalized string = " + result);
     }
 
-    public static String capitalize(String input) {
+    public static String capitalized_firstletter(String input) {
         String[] words = input.split(" ");
         String result = "";
 
