@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class City {
-    public static void main(String[] args) {
+    public static void main(String[] args)throws IOException {
 	int i=0;
 	int search;
         BufferedReader  br=new BufferedReader(new InputStreamReader(System.in));
