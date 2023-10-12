@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+class Main{
+    public static void main(String []args) throws IOException{
+        int i;
+        InputStreamReader isr=new InputStreamReader(System.in);
+        BufferedReader br=new BufferedReader(isr);
+        System.out.println("Enter cities:");
+        String cities[]=new String[10];
+        for(i=0;i<10;i++){
+            cities[i]=br.readLine();
+        }
+        System.out.println("enter city to be searched:");
+        String search_city=br.readLine();
+        boolean x=false;
+        for(i=0;i<10;i++){
+            if(search_city.equals(cities[i])){
+                x=true;
+                break;
+            }
+                
+        }
+        if(x){
+            System.out.println("city found");
+        }
+        else{
+            System.out.println("city not found");
+        }
+        
+    }
+}
