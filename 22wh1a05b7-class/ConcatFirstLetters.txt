@@ -1,0 +1,19 @@
+import java.util.*;
+import java.io.*;
+public class ConcatFirstLetters {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the String:");
+        String str=br.readLine();
+        StringTokenizer st=new StringTokenizer(str," ");
+        String k=" ";
+        int count=st.countTokens();
+        for(int i=0;i<count;i++)
+        {
+            String si=st.nextToken();
+            si=si.substring(0,1);
+            System.out.print(si);
+        }
+        
+    }
+}
