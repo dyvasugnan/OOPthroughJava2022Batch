@@ -1,0 +1,13 @@
+package sample;
+import java.lang.*;
+import java.util.*;
+import java.io.*;
+public class Merge {
+	public static void main(String[]args) {
+		String s1="vaishnavi";
+		String s2="bachu";
+		System.out.println(s1+s2);
+		
+	}
+
+}
