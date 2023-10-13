@@ -1,0 +1,27 @@
+package sample;
+
+class Outer{
+	void outerShow(){
+			
+				System.out.println("outer method");
+				
+				class Inner{
+					void innerMethod(){
+						System.out.println("inner method");
+			}
+		}//end of the inner class
+				Inner in = new Inner();
+			    in.innerMethod();
+	}
+}
+
+public class InnerClass {
+
+	public static void main(String[] args) {
+		Outer out=new Outer();
+	    out.outerShow();
+	    
+
+	}
+
+}
