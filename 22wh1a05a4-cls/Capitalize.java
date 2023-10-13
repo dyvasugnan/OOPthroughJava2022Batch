@@ -13,3 +13,6 @@ if(!word.isEmpty()){
 if(!word.isEmpty()){
 result+=character.toUpperCase(word.charAt(0))+word.subString(1)+" ";
 }
+}
+return result;
+}
