@@ -1,4 +1,4 @@
-package LearningJava;
+
 import java.io.*;
 
 public class StringLinearSearch {
