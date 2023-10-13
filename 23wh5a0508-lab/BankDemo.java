@@ -34,6 +34,7 @@ class BankAcc
 	{
 		int t = 5;
 		double inter = (bal* rate * t) /1000; 
+                System.out.println(inter);
 	}
 	}
 }
