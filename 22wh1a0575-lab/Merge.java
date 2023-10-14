@@ -1,0 +1,32 @@
+import java.util.*;
+class Merge {
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter String s1 : ");
+    	String s1=sc.nextLine();
+    	System.out.println("Enter String s2 : ");
+	    String s2=sc.nextLine();
+		String s3="";
+		for(int i=0;i<s1.length();i++)
+		{
+			s3=s3.concat(s1.substring(i,i+1));
+			i++;
+		}
+		for(int j=0;j<s2.length();j++)
+		{
+			s3=s3.concat(s2.substring(j,j+1));
+			j++;
+		}
+		for(int k=1;k<s1.length();k++)
+		{
+			s3=s3.concat(s1.substring(k,k+1));
+			k++;
+		}
+		for(int p=1;p<s2.length();p++)
+		{
+			s3=s3.concat(s2.substring(p,p+1));
+			p++;
+		}
+		System.out.println("Merged String : "+s3);
+	}
+}
