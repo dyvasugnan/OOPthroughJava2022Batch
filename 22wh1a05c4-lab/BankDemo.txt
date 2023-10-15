@@ -1,0 +1,48 @@
+//package cseb;
+
+//package cseb;
+import java.util.*;
+class BankAcc{
+	double bal;
+	int time;
+	BankAcc(double b,int t){
+		bal=b;
+		time=t;
+	}
+	void contact(double r) {
+		int password=2657;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter password:");
+		int p=sc.nextInt();
+		if(p==password) {
+			Interest in=new Interest(r);
+			in.calc_interest();
+		}
+		else {
+			System.out.println("password is incorrect");
+		}
+		
+	}
+	private class Interest{
+			double interest;
+			double r;
+			Interest(double r){
+				this.r=r;
+			}
+			void calc_interest() {
+				interest=(bal*time*r)/100;
+				System.out.println("Interest:"+interest);
+			}
+		}
+		
+	
+}
+public class BankDemo {
+
+	public static void main(String[] args) {
+		BankAcc bc=new BankAcc(9000,2);
+		bc.contact(3.2);
+
+	}
+
+}
