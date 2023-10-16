@@ -12,7 +12,7 @@ Scanner sc=new Scanner(System.in);
 String pwd;
 System.out.println("enter pwd");
 pwd=sc.next();
-if (pwd.equals("ashwitha"))
+if (pwd.equals("pooja"))
 {
 Interest in=new Interest(r);
 in.calcInter();
