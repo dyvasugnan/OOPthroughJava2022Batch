@@ -1,0 +1,22 @@
+import java.util.*;
+import java.lang.*;
+class Person
+{
+public static void main(String[]  args)
+{
+int n,step1=0,step2=1;
+int counter=0;
+Scanner sc =new Scanner(System.in);
+System.out.print("enter no.of steps");
+n=sc.nextInt();
+while(counter<n)
+{
+int step3=step1+step2;
+System.out.println(step3 +" ");
+step1=step2;
+step2=step3;
+counter=counter+1;
+}
+System.out.print("total steps"+counter);
+}
+}
