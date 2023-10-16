@@ -1,0 +1,17 @@
+import java.util.*;
+class Reverse{
+    public static void main(String[] args){
+        String str;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter a string");
+        str=sc.nextLine();
+        char[] ch =str.toCharArray();
+        System.out.println("reversed string is");
+        int j=ch.length;
+        for(int i=j;i>0;i--)
+        {
+            System.out.println(ch[i-1]);
+        }
+        
+    }
+}
