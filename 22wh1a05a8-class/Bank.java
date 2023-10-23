@@ -3,7 +3,8 @@ public class RandomNumberGame {
     public static void main(String args[]) {
         int win = 0;
         Scanner sc = new Scanner(System.in);
-        UserBankAccount acc = new UserBankAccount(sc);
+        Atm atm = new Atm(sc);
+        UserBankAccount acc = new UserBankAccount(atm);
         while (true) {
             System.out.println("Select any of the following options");
             System.out.println("1 : Withdraw");
@@ -32,25 +33,32 @@ public class RandomNumberGame {
         }
     }
 }
-class UserBankAccount{
+class Atm {
     Scanner sc;
     int bankbalance;
-    UserBankAccount(Scanner scanner) {
+
+    public Atm(Scanner scanner) {
         this.sc = scanner;
         System.out.println("Enter the bank balance");
         bankbalance = sc.nextInt();
     }
+}
+class UserBankAccount {
+    Atm atm;
+    public UserBankAccount(Atm atm) {
+        this.atm = atm;
+    }
     void withdraw() {
         System.out.println("Enter the amount to withdraw");
-        int w = sc.nextInt();
-        bankbalance = bankbalance - w;
+        int w = atm.sc.nextInt();
+        atm.bankbalance = atm.bankbalance - w;
     }
     void deposit() {
         System.out.println("Enter the amount to deposit");
-        int d = sc.nextInt();
-        bankbalance = bankbalance + d;
+        int d = atm.sc.nextInt();
+        atm.bankbalance = atm.bankbalance + d;
     }
     void checkBalance() {
-        System.out.println("The bank balance is " + bankbalance);
+        System.out.println("The bank balance is " + atm.bankbalance);
     }
 }
