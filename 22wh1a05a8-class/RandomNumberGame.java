@@ -9,7 +9,7 @@ public class RandomNumberGame {
             System.out.println("2 : Show the score");
             System.out.println("3 : End the game");
             int ch = sc.nextInt();
-            int ran = (int) Math.round(Math.random() * 10);
+            int ran = (int) Math.round(Math.random() * 100);
             switch (ch) {
                 case 1:
                     System.out.println("You have only three choices to guess the number");
