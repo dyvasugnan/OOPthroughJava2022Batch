@@ -1,0 +1,40 @@
+package cse578;
+import java.awt.*;
+import java.awt.event.*;
+
+class TestGui extends Frame{
+	public void paint(Graphics g) {
+		Font f1 = new Font("Arial",Font.BOLD,30);//Font.italic,underline
+		g.setFont(f1);
+		g.setColor(Color.GRAY);
+		g.drawString("Hello Message", 100, 100);
+		//g.setColor(Color.blue);
+		//g.fillRect(1, 1, 400, 400);
+		g.drawRect(100, 100, 400, 400);
+		g.drawOval(120, 120, 350, 350);
+		g.drawOval(200, 200, 35, 35);
+		g.drawOval(350, 200, 35, 35);
+		g.drawLine(290, 290, 290, 340);
+		g.drawArc(240, 340, 80, 80, 180, 180);
+		
+	
+	}
+}
+
+public class FirstGUI {
+
+	public static void main(String[] args) {
+		TestGui f = new TestGui();
+		f.setTitle("First frame");
+		f.setVisible(true);
+		f.setSize(400,400);
+		f.addWindowListener(new MyClass());
+		
+	}
+
+}
+class MyClass extends WindowAdapter{
+	public void windowClosing(WindowEvent we ) {
+		System.exit(0);
+	}
+}
