@@ -1,0 +1,44 @@
+package cse_5b5;
+import java.awt.*;
+import java.awt.event.*;
+
+class TestGui extends Frame{
+public void paint(Graphics g) {
+g.drawRect(500, 200, 800, 600);
+g.drawOval(700, 300, 450, 450);
+g.drawOval(800, 400, 50, 50);
+g.drawOval(1000, 400, 50, 50);
+g.drawLine(930, 500, 930, 435);
+g.drawArc(910, 550, 70, 35, 180, 180);
+g.setColor(Color.blue);
+g.fillRect(500, 200, 800, 600);
+g.setColor(Color.yellow);
+g.fillOval(700, 300, 450, 450);
+g.setColor(Color.red);
+g.fillOval(800, 400, 50, 50);
+g.setColor(Color.red);
+g.fillOval(1000, 400, 50, 50);
+g.setColor(Color.black);
+
+
+
+}
+}
+public class FirstGUI {
+
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+  TestGui f = new TestGui();  //f.setTitle("First Frame")
+        f.setVisible(true);
+        f.setSize(400, 400);
+        f.addWindowListener(new MyClass());
+       
+}
+
+}
+class MyClass extends WindowAdapter{
+public void windowClosing(WindowEvent we) {
+System.exit(0);
+}
+}
+
