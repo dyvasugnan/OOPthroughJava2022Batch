@@ -1,0 +1,53 @@
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+class TestGui extends Frame{
+	public void paint(Graphics g) {
+		g.drawRect(50, 50, 200, 200);
+		g.setColor(Color.pink);
+		g.fillRect(50,50,200, 200);
+		//g.drawLine(10, 10, 30, 30);
+	//	g.drawOval(90, 80, 120, 120);
+		g.setColor(Color.yellow);
+		g.fillOval(90, 80, 120, 120);
+		
+		g.drawOval(100, 120, 20, 20);
+		g.setColor(Color.black);
+		g.fillOval(120, 100, 20, 20);
+		
+		g.drawOval(160, 100, 20, 20);
+		g.setColor(Color.black);
+		g.fillOval(160, 100, 20, 20);
+		
+		g.drawLine(150, 130, 150, 150);
+		
+	   g.drawArc(120, 135, 60,40,180,180);
+     	g.setColor(Color.red);
+		g.fillArc(120, 135, 60, 40,180,180);
+		Font f1=new Font("Arial",Font.BOLD,30);
+		g.setFont(f1);
+		g.setColor(Color.GRAY);
+		g.drawString("HELLO EVERYONE",40,300);
+		//g.setColor(Color.blue);
+	   // g.fi
+		
+	}
+}
+class FirstGui {
+	public static void main(String[] args) {
+		TestGui f = new TestGui();//f.setTitle("first frame");
+		f.setVisible(true);
+		f.setSize(380,380);
+		f.addWindowListener(new MyClass());  
+		//perform action on window created
+		
+	}
+
+}
+class MyClass extends WindowAdapter{
+	public void windowClosing(WindowEvent we) { //just declaration
+		System.exit(0);
+	}
+}
