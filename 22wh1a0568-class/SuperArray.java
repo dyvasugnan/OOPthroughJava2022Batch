@@ -14,16 +14,18 @@ class OneD {
 
 class TwoD extends OneD {
     int[] newColumns;
-
+    int[][] arr2D;
     TwoD() {
         newColumns = new int[] {4, 5, 6};
         int term;
-        if(arr1D.length==2)
+        /*if(arr1D.length==2)
         	term =0;
         else
         	term = arr1D.length/2;
         int rows = arr1D.length-term; // no.of rows 
-        int cols = newColumns.length; // no.of columns 
+        int cols = newColumns.length; // no.of columns */
+	int rows =2;
+	int cols = 3;
         int[][] arr2D = new int[rows][cols];
 
         for (int i = 0; i < rows; i++) {
