@@ -77,7 +77,7 @@ class ThreeD extends TwoD {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 for(int k = 0; k < z; k++){ 
-                System.out.print(twoD[i][j] + " ");
+                System.out.print(three[i][j][k] + " ");
             }
             System.out.println();
         }
