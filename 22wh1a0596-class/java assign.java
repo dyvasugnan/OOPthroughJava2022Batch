@@ -5,7 +5,7 @@ abstract class OneD {
     int m;
     int[] arr;
 
-    public OneD() throws IOException {
+    OneD() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter the size of the 1D array: ");
         this.m = Integer.parseInt(br.readLine());
@@ -23,7 +23,7 @@ class TwoD extends OneD {
     int n;
     int[][] twoD;
 
-    public TwoD() throws IOException {
+    TwoD() throws IOException {
         super();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter the number of rows for the 2D array: ");
