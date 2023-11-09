@@ -1,0 +1,64 @@
+import java.util.Scanner;
+class OneD {
+    int rows;
+    int[] arr;
+    public void getData1() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter rows ");
+        rows = sc.nextInt();
+        arr = new int[rows];
+        System.out.print("enter elements");
+        for (int i = 0; i < rows; i++) {
+            arr[i] = sc.nextInt();
+        }
+    }
+
+    public void displayData1() {
+        System.out.println("1D array ");
+        for (int i = 0; i < rows; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
+
+class TwoD extends OneD {
+    int columns;
+    int[][] arr;
+    public TwoD() {
+        super.getData1();
+        super.displayData1();
+   }
+    public void getData2D() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter columns");
+        columns = sc.nextInt();
+        arr = new int[rows][columns];
+        System.out.print("enter elements");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+    }
+
+    public void displayData2D() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+public class TwoD_OneD {
+    public static void main(String[] args) {
+        TwoD t = new TwoD();
+        t.getData2D();
+      /*  System.out.print("1D array");
+        t.displayData1();*/
+        System.out.println("2D array");
+        t.displayData2D();
+    }
+}
