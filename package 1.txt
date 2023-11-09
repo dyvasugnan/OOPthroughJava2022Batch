@@ -1,0 +1,10 @@
+package cseb;
+import java.awt.*;
+
+public class GuI {
+public static void main(String[] args) {
+Frame f = new Frame("First Frame");
+f.setVisible(true);
+         f.setSize(400, 400);
+}
+}
