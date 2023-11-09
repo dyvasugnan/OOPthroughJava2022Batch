@@ -1,0 +1,17 @@
+public class SwapNumbers {
+    public static void main(String[] args) {
+        int[] numbers = {5, 10};
+ 
+        System.out.println("Before swapping:"+"a = " + numbers[0]+",b = " + numbers[1]);
+        
+        swapNumbers(numbers);
+ 
+        System.out.println("After swapping:"+"a = " + numbers[0]+",b = " + numbers[1]);
+    }
+    
+    public static void swapNumbers(int[] numbers) {
+        int temp = numbers[0];
+        numbers[0] = numbers[1];
+        numbers[1] = temp;
+    }
+}
