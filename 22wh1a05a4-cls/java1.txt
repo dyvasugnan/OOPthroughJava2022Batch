@@ -1,0 +1,18 @@
+class Demo{
+    void getSwap(int x, int y){
+        System.out.println("before swapping \n " +x  + y+" ");
+        int temp;
+        temp = y;
+        y = x;
+        x = temp;
+        System.out.println("after swapping \n " + x +" " + y+" ");
+    }
+}
+class Swap {
+    public static void main(String[] args){
+        int a = 10;
+        int b = 20;
+        Demo s = new Demo();
+             s.getSwap(a,b);
+    }
+}
