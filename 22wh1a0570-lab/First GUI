@@ -1,0 +1,85 @@
+package cseb___22wh1a0570;
+
+import java.awt.*;
+
+import java.awt.event.*;
+
+
+
+class TestGUI extends Frame{
+
+	public void paint(Graphics g) {
+
+		g.setColor(Color.blue);
+
+		g.drawRect(400,250,400,250);
+
+		g.setColor(Color.red);
+
+		g.drawOval(425,270,350,200);
+
+		g.drawOval(490,320,25,25);
+
+		g.drawOval(665,320,25,25);
+
+		g.drawLine(20,20,500,500);
+
+		g.drawArc(550,320,100,100,245,60);
+
+		
+
+class String1 extends Frame{
+
+	public void paint(Graphics g) {
+
+		Font f1 = new Font("Arial",Font.BOLD,30);
+
+		g.setFont(f1);
+
+		g.setColor(Color.GRAY);
+
+		g.drawString("Hello Message", 100, 100);
+
+		g.setColor(Color.blue);
+
+	}
+
+}
+
+	
+
+		
+
+	}
+
+}
+
+public class FirstGUI {
+
+		public static void main(String[] args) {
+
+		String1 f= new String1 ();
+
+		TestGUI f = new TestGUI ();
+
+				f.setTitle("First Frame");  
+
+				f.setVisible(true);
+
+				f.setSize(400,400);
+
+				f.addWindowListener(new MyClass());
+
+		}
+
+}
+
+class MyClass extends WindowAdapter{
+
+	public void windowClosing(WindowEvent we) {
+
+		System.exit(0);
+
+	}
+
+}
