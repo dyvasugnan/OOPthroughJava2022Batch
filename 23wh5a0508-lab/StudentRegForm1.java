@@ -1,0 +1,79 @@
+package csb;
+import java.awt.*;
+import java.awt.event.*;
+class MyButton extends Frame implements ActionListener{
+	Button b1,b2,b3;
+	//TextField t1,t2;
+	//Checkbox c3;
+	MyButton(){
+		this.setLayout(null);
+		/*b1 = new Button("save");
+		b2 = new Button("Update");
+		t1 = new TextField();
+		t2 = new TextField(30);
+		b1.setBounds(100,100,100,50);
+		b2.setBounds(150,100,100,50);
+		t1.setBounds(200,100,100,50);
+		t2.setBounds(250,100,100,50);
+		this.add(b1);
+		this.add(b2);
+		this.add(t1);
+		this.add(t2);
+		t1 = new TextField("NAME");
+		t2 = new TextField("Father Name");
+		t1.setBounds(100,100,100,50);
+		t2.setBounds(100, 150, 100, 50);
+		this.add(t1);
+		this.add(t2);
+		Checkbox c1 = new Checkbox();
+		Checkbox c2 = new Checkbox("english");
+		c3 = new Checkbox("telugu",false);
+		c3.setBounds(100,200,300,150);
+		this.add(c3);*/
+		b1 = new Button("Blue");
+		b2 = new Button("Green");
+		b3 = new Button("Red");
+		b1.setBounds(100,100,100,50);
+		b2.setBounds(200,100,100,50);
+		b3.setBounds(300,100,100,50);
+		this.add(b1);
+		this.add(b2);
+		this.add(b3);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);     //get action and get source
+		
+	}
+	public void actionPerformed(ActionEvent ae) {
+		String str;
+		str = b1.getActionCommand();
+		if(str.equals("Blue"))
+			this.setBackground(Color.blue);
+		str = b2.getActionCommand();
+		if(str.equals("Green"))
+			this.setBackground(Color.green);
+		str = b3.getActionCommand();
+		if (str.equals("Red"))
+			this.setBackground(Color.red);
+		
+		
+	}
+}
+
+public class StudentRegForm1 {
+	public static void main(String[] args) {
+		MyButton f = new MyButton();
+		f.setTitle("Sample Frame");
+		f.setVisible(true);
+		f.setSize(400,400);
+		f.addWindowListener(new MyClass1());
+		
+	}
+
+}
+class MyClass1 extends WindowAdapter
+{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+	}
+}
