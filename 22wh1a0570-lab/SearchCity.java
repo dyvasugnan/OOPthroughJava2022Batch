@@ -1,0 +1,15 @@
+public class CitySearch {
+    public static void main(String[] args) {
+        String s = "Hyderabad,Thiruvunanthapuram,Bangalore,Chennai";
+        String scity = "Hyderabad";
+        boolean x = searchCity(s, scity);
+        if (x) {
+            System.out.println("City found in the text.");
+        } else {
+            System.out.println("City not found in the text.");
+        }
+    }
+    public static boolean searchCity(String s, String city) {
+        return s.contains(city);
+    }
+}
