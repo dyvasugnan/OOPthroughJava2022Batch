@@ -1,0 +1,62 @@
+import java.util.Scanner;
+class OneD {
+    int[] array;
+    int r;
+    Scanner sc = new Scanner(System.in);
+
+    void getData1() {
+        System.out.println("Enter size of 1D array : ");
+        r = sc.nextInt();
+        array = new int[r];
+        System.out.println("Enter 1D array elements : " );
+        for (int i = 0; i < r; i++) {
+            array[i] = sc.nextInt();
+        }
+        System.out.println();
+    }
+
+    void displayData() {
+        System.out.println("1D Array Elements : ");
+        for (int i = 0; i < r; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+}
+
+class Array2D extends OneD {
+    int[][] array2;
+    int c;
+
+    public void get2D() {
+        System.out.println("Enter number of columns for 2D array");
+        c = sc.nextInt();
+        array2 = new int[r][c];
+        System.out.println("Enter the elements in 2D array : ");
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                array2[i][j] = sc.nextInt();
+            }
+        }
+    }
+
+    public void display2() {
+        System.out.println("2D Array Elements:");
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                System.out.print(array2[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+class oneD_TwoD_Array{
+    public static void main(String[] args) {
+        Array2D d1 = new Array2D();
+        d1.getData1();
+        d1.displayData();
+        d1.get2D();
+        d1.display2();
+    }
+}
