@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 public class CapitalLetter {
 	public static void main(String[] args) {
-		String s = "hi all, i am saividhya";
+		String s = "hi all, iam srinidhi";
 		String[] words = s.split(" ");
 		for(int i=0;i<words.length;i++) {
 			if(words[i]!=" "||words[i]!=",") {
