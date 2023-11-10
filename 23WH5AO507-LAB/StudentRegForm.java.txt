@@ -1,0 +1,85 @@
+package cseb;
+import  java.awt.*;
+import java.awt.event.*;
+class MyButton extends Frame implements ActionListener{
+	Button b1,b2,b3;
+	//TextField t1,t2;
+	MyButton(){
+		this.setLayout(null);
+		/*b1=new Button("Save");
+		b2=new Button("update");
+        t1=new TextField();
+        t2=new TextField(30);
+        b1.setBounds(100,100,100,50);
+        b2.setBounds(200,100,100,50);
+        t1.setBounds(200,100,100,50);
+        t2.setBounds(250,100,100,50);
+        this.add(b1);
+        this.add(b2);
+        this.add(t1);
+        this.add(t2);
+        Checkbox c1= new Checkbox();
+        Checkbox c2= new Checkbox(" TELUGU",true);
+       	Checkbox c3= new Checkbox("ENGLISH",true);
+       	 c2.setBounds(150,150,150,100);
+       	 c3.setBounds(100,100,150,200);
+       	 this.add(c2);
+       	 this.add(c3);
+       	 TextField t1=new TextField();
+       	TextField t2=new TextField();
+       	TextField t3=new TextField();
+      	 t1.setBounds(100,100,100,100);
+      	 t2.setBounds(100,100,100,100);
+      	 this.add(t1);
+      	 this.add(t2);*/
+		
+
+b1=new Button("Red");
+b2=new Button("Grren");
+b3=new Button("Blue");
+b1.setBounds(100,100,100,50);
+	 b2.setBounds(200,100,150,50);
+	 b3.setBounds(300,100,150,50);
+   	 this.add(b1);
+   	 this.add(b2);
+   	 this.add(b3);
+   	 b1.addActionListener(this);
+   	b2.addActionListener(this);
+   	b3.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		String str;
+		
+		str=b1.getActionCommand();
+		
+		if(str.equals("red")) 
+			this.setBackground(Color.red);
+	
+		str=b2.getActionCommand();
+		if(str.equals("green")) 
+			this.setBackground(Color.green);
+		str=b3.getActionCommand();
+		if(str.equals("Blue"))
+		
+			this.setBackground(Color.blue);
+	
+	}
+}
+   	 public class StudentRegForm {
+public static void main(String[] args) {
+MyButton f=new MyButton();
+f.setTitle("Sample frame");
+f.setVisible(true);
+f.setSize(400,400);
+
+f.addWindowListener(new MyClass1());
+}
+}
+class MyClass1 extends WindowAdapter
+{
+	public void WindowCloisng(WindowEvent we)
+{
+		System.exit(0);
+		}
+}
