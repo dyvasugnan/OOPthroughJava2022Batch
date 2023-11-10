@@ -1,0 +1,37 @@
+package srinidhi;
+import java.awt.*;
+import java.awt.event.*;
+
+class TestGUI extends Frame{
+	public void paint(Graphics g) {
+		g.drawRect(40,80,300,300);
+		g.drawOval(60,60,260,260);
+		g.drawOval(120,160,20,30);
+		g.drawOval(240,160,20,30);
+		g.drawLine(190,250,190,180);
+		g.drawArc(140, 200,90, 80, 200,150);
+		Font f1=new Font("Arial",Font.BOLD,30);
+		g.setFont(f1);
+		g.setColor(Color.YELLOW);
+		g.drawString("SRINIDHI", 60,80);
+		g.setColor(Color.blue);
+		
+	}
+}
+
+public class GUI { 
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+				TestGUI f=new TestGUI();
+				f.setVisible(true);
+				f.setSize(400,400);
+				f.addWindowListener(new MyClass());
+	}
+
+}
+class MyClass extends WindowAdapter{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+	}
+}
