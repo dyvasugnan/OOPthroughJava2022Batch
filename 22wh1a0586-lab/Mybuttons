@@ -1,0 +1,37 @@
+import java.awt.*;
+import java.awt.event.*;
+class Some extends Frame{
+	Button b1,b2,b3;
+	Some(){
+		this.setLayout(null);
+		b1 = new Button("Green");
+		b2 = new Button("blue");
+		b3 = new Button("Blue");
+		
+		b1.setBounds(100,650,100,50);
+		b2.setBounds(280,650,100,50);
+		b3.setBounds(380, 650,100, 50);
+		this.add(b1);
+		this.add(b2);
+		this.add(b3);
+		
+	}
+}
+public class Button {
+	public static void main(String[] args) {
+		Some f = new Some();
+		
+		f.setTitle("Sample");
+		//Frame f = new Frame("Sample");
+		f.setVisible(true);
+		f.setSize(500,800);
+		f.setBackground(Color.gray);
+		f.addWindowListener(new NewClass());
+	}
+
+}
+class NewClass extends WindowAdapter{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+	}
+}
