@@ -1,0 +1,54 @@
+package cse22579;
+import java.awt.*;
+import java.awt.event.*;
+class TestGui extends Frame{
+	
+	
+	public void paint(Graphics g) {
+		Font f1=new Font("Algerian",Font.BOLD,30);
+		g.setFont(f1);
+		g.setColor(Color.GRAY);
+		g.drawString("hello",150,350);
+		g.setColor(Color.DARK_GRAY);
+		
+		g.drawRect(100,100,200,200);
+        g.drawOval(150,150,100,100);
+		g.setColor(Color.yellow);
+		g.fillOval(150, 150, 100, 100);
+		
+		g.drawOval(175,175,10,10);
+		g.setColor(Color.black);
+		g.fillOval(175, 175, 10, 10);
+		g.drawOval(220,175, 10, 10);
+		g.setColor(Color.black);
+		g.fillOval(220, 175, 10, 10);
+		g.setColor(Color.red);
+		g.drawArc(155,125,100,100, -60, -60);
+		
+		
+		
+	}
+}
+
+	
+
+
+public class FirstGui {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	TestGui f=new TestGui();//f.setTitle('First frame')
+		  f.setVisible(true);
+		  f.setSize(400,400);
+		  f.addWindowListener(new MyClass());
+		  TestGui tg=new TestGui();
+		
+
+	}
+
+}
+class MyClass extends WindowAdapter{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+	}
+}
