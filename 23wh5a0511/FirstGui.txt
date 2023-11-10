@@ -21,11 +21,11 @@ public class FirstGui {
 		
 		f.setVisible(true);
 		f.setSize(400,400);
-		f.addWindowListener(new MyClass());
+		f.addWindowListener(new MyClass1());
 		
 	}
 }
-class MyClass extends WindowAdapter 
+class MyClass1 extends WindowAdapter 
 {
 	public void WindowClosing(WindowEvent we)
 	{
