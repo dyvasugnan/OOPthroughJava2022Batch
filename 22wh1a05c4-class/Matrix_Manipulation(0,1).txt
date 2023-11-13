@@ -1,0 +1,47 @@
+
+import java.util.*;
+public class Matrix
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("enter no.of rows");
+		int N1=sc.nextInt();
+		System.out.print("enter no.of columns");
+		int N2=sc.nextInt();
+		int[][] arr=new int[N1][N2];
+		System.out.print("enter matrix elements");
+		for(int i=0;i<N1;i++){
+		    for(int j=0;j<N2;j++){
+		        arr[i][j]=sc.nextInt();
+		    }
+		}
+		
+		for(int i=0;i<N1;i++){
+		    for(int j=0;j<N2;j++){
+		       if(arr[i][j]==0){
+		           arr[i][j]=-1;
+		           int x=i;
+		           int y=j;
+		          for(int s=0;s<N1;s++){
+		              arr[i][s]=-1;
+		          }
+		           for(int t=0;t<N2;t++){
+		                  arr[t][j]=-1;
+		              }
+		         
+		       }
+		    }
+		}
+		System.out.print("output");
+		for(int i=0;i<N1;i++){
+		    for(int j=0;j<N2;j++){
+		        if(arr[i][j]==-1){
+		            arr[i][j]=0;
+		        }
+		       System.out.print( arr[i][j]+" ");
+		    }
+		    System.out.println();
+		}
+		
+	}
+}
