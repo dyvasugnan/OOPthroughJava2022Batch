@@ -1,0 +1,105 @@
+package akshithac7;
+
+import java.awt.*;
+
+import java.awt.event.*;
+
+class MyButton1 extends Frame implements ActionListener{
+
+	Button b1,b2,b3;
+
+	MyButton1(){
+
+	    this.setLayout(null);
+
+		b1=new Button("Green");
+
+		b2=new Button("Red");
+
+		b3=new Button("Blue");
+
+		b1.setBounds(200,400,70,30);
+
+		b2.setBounds(280,400,70,30);
+
+		b3.setBounds(380,400,70,30);
+
+		this.add(b1);
+
+		this.add(b2);
+
+		this.add(b3);
+
+		b1.addActionListener(this);
+
+		b2.addActionListener(this);
+
+		b3.addActionListener(this);
+
+	}
+
+	public void actionPerformed(ActionEvent ae) {
+
+		String str;
+
+		str=b1.getActionCommand();
+
+		if(str.equals("blue"))
+
+			this.setBackground(Color.blue);
+
+		str=b2.getActionCommand();
+
+		if(str.equals("green"))
+
+			this.setBackground(Color.green);
+
+		str=b3.getActionCommand();
+
+		if(str.equals("red"))
+
+			this.setBackground(Color.red);
+
+	}
+
+}
+
+
+
+
+
+public class ButtonAction {
+
+		 public static void main(String[] args) {
+
+			  //TODO Auto-generated method stub
+
+			  MyButton1 f=new MyButton1();
+
+			  f.setTitle("Button Action");
+
+			  f.setVisible(true);
+
+			  f.setSize(600,600);
+
+			  f.setBackground(Color.pink);  
+
+			  f.addWindowListener(new MyClass1());
+
+		 }
+
+	
+
+}
+	class MyClass1 extends WindowAdapter{
+
+		public void WindowClosing(WindowEvent we) {
+
+			System.exit(0);
+
+		}
+
+	}
+
+
+
