@@ -1,0 +1,133 @@
+package diwali;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+class MyButton extends Frame{
+	public void paint(Graphics g) {
+		 int[] xPoints = {200, 250, 200, 150};
+	        int[] yPoints = {100, 170, 220, 170}; 
+
+	        g.setColor(Color.yellow); 
+	        g.fillPolygon(xPoints, yPoints, 4);
+	      
+	        int[] xPoints2 = {200, 250, 200, 150};
+	        int[] yPoints2 = {130, 170, 220, 170}; 
+
+	        g.setColor(Color.orange); 
+	        g.fillPolygon(xPoints2, yPoints2, 4);
+	      
+	        
+        g.drawArc(125, 135, 150,120,180,180);
+     	g.setColor(new Color(139,69,19));
+		g.fillArc(125, 135, 150, 120,180,180);
+		
+		 g.drawOval(130, 200, 8, 8);
+			g.setColor(Color.white);
+			g.fillOval(130, 200, 8, 8);
+			
+	   g.drawOval(140, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(140, 200, 8, 8);
+		g.drawOval(150, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(150, 200, 8, 8);
+		g.drawOval(160, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(160, 200, 8, 8);
+		g.drawOval(170, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(170, 200, 8, 8);
+		g.drawOval(180, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(180, 200, 8, 8);
+		g.drawOval(190, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(190, 200, 8, 8);
+		
+		g.drawOval(200, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(200, 200, 8, 8);
+			
+		g.drawOval(210, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(210, 200, 8, 8);
+			
+		g.drawOval(220, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(220, 200, 8, 8);
+			
+		g.drawOval(230, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(230, 200, 8, 8);
+			
+		g.drawOval(240, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(240, 200, 8, 8);
+			
+		g.drawOval(250, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(250, 200, 8, 8);
+			
+		g.drawOval(260, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(260, 200, 8, 8);
+			
+
+		/*g.drawOval(200, 210, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(200, 210, 8, 8);
+		
+		g.drawOval(190, 210, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(190, 210, 8, 8);
+		
+		g.drawOval(180, 210, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(180, 210, 8, 8);
+		/*g.drawOval(260, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(260, 200, 8, 8);
+		
+		g.drawOval(260, 200, 8, 8);
+    	g.setColor(Color.white);
+		g.fillOval(260, 200, 8, 8);
+		*/
+		Font f1=new Font("Serif",Font.BOLD,40);
+		g.setFont(f1);
+		g.setColor(Color.red);
+		g.drawString("**Happy Diwali**",50,350);
+
+		
+	}
+}
+
+public class Demo {
+	public static void main(String[] args) {
+		MyButton f = new MyButton();//f.setTitle("first frame");
+		f.setVisible(true);
+		f.setSize(400,400);
+        f.setBackground(new Color(173, 216, 230));
+		f.addWindowListener(new MyClass()); 
+
+	}
+
+	private void setSize(int i, int j) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addWindowListener(MyClass myClass) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+class MyClass extends WindowAdapter{
+	public void windowClosing(WindowEvent we) { //just declaration
+		System.exit(0);
+	}
+}
