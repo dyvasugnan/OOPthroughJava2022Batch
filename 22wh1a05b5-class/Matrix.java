@@ -1,0 +1,111 @@
+import java.util.*;
+
+ 
+
+public class Matrix {
+
+         int i,j,k=0,l=0,x,y;
+
+         public Matrix(){
+
+             Scanner sc=new Scanner(System.in);
+
+             System.out.println("enter number of rows:");
+
+             int n=sc.nextInt();
+
+             System.out.println("enter number of columns:");
+
+             int m=sc.nextInt();
+
+             System.out.println("enter elements:");
+
+             int mat[][]=new int[n][m];
+
+             for(i=0;i<n;i++){
+
+                 for(j=0;j<m;j++){
+
+                     mat[i][j]=sc.nextInt();
+
+                 }
+
+             }
+
+             System.out.println("matrix is:");
+
+             for(i=0;i<n;i++){
+
+                 for(j=0;j<m;j++){
+
+                     System.out.print(mat[i][j]+" ");
+
+                 }
+
+                 System.out.println();
+
+             }
+
+             for(i=0;i<n;i++){
+
+                 for(j=0;j<m;j++){
+
+                     if(mat[i][j]==1 || mat[i][j]==0){
+
+                         if(mat[i][j]==0){
+
+                             k=i;
+
+                             l=j;
+
+                         }
+
+                     }
+
+                 }
+
+             }
+
+             for(i=0;i<n;i++){
+
+                 mat[i][l]=0;
+
+             }
+
+             for(j=0;j<m;j++){
+
+                 mat[k][j]=0;
+
+             }
+
+             System.out.println("changed matrix is:");
+
+             for(i=0;i<n;i++){
+
+                 for(j=0;j<m;j++){
+
+                     System.out.print(mat[i][j]+" ");
+
+                 }
+
+                 System.out.println();
+
+             }
+
+         }
+
+     }
+
+     class Main{
+
+         public static void main(String[]args){
+
+             Matrix m=new Matrix();
+
+         }
+
+     }
+
+ 
+
+ 
