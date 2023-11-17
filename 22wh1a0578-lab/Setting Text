@@ -1,0 +1,41 @@
+import java.awt.*;
+import java.awt.event.*;
+class MyButton45 extends Frame implements ActionListener{
+	Button b2;
+	TextField t1;
+	MyButton45(){
+		this.setLayout(null);
+		b2=new Button("Set");
+		t1 = new TextField();
+		
+		t1.setBounds(100,100,80,50);
+		b2.setBounds(200,100,80,50);
+		this.add(b2);
+	    this.add(t1);
+		b2.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent ae) {
+		String str;
+		str=ae.getActionCommand();
+		if(str.equals("Set")) {
+			t1.setText("Hi!");
+		}
+			
+}}
+
+
+public class SettingText {
+		public static void main(String[] args) {
+			MyButton45 f= new MyButton45();
+			f.setTitle("Sample Frame");
+			f.setVisible(true);
+			f.setSize(400,400);
+			f.setBackground(Color.pink);
+			f.addWindowListener(new MyClass45());
+		}
+	}
+	class MyClass45 extends WindowAdapter{
+		public void windowClosing(WindowEvent we) {
+			System.exit(0);
+		}
+	}
