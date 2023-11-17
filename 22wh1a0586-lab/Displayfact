@@ -1,0 +1,77 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class TwoButton extends Frame implements ActionListener{
+	Button b1,b2;
+	TextField t1,t2;
+	TwoButton(){
+		this.setLayout(null);
+		b1 = new Button("Comp");
+		b2 = new Button("Clear");
+		
+		t1 = new TextField();
+		t2 = new TextField();
+		
+		b1.setBounds(130,350,100,50);
+		b2.setBounds(270,350,100,50);
+		
+		t1.setBounds(250,100,100,50);
+		t2.setBounds(250,200,100,50);
+		
+		this.add(b1);
+		this.add(b2);
+		this.add(t1);
+		this.add(t2);
+		this.add(t1);
+		
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		
+	}
+
+		
+		public void paint(Graphics g) {
+			Font s = new Font("Arial",Font.BOLD,20);
+			g.setFont(s);
+			g.setColor(Color.BLUE);
+			g.drawString("Number",150,125);
+			g.drawString("Fact", 150, 225);
+			
+		}
+		public void actionPerformed(ActionEvent ae) {
+			String str = ae.getActionCommand();	
+			if(str.equals("Comp")) {
+				int n = Integer.parseInt(this.t1.getText());
+				int i;
+				int j=1;
+				for(i=n;i>0;i--) {
+					j = j*i; 
+				}
+				t2.setText(String.valueOf(j));
+			}
+		
+}
+}
+
+public class DisplayFact {
+	public static void main(String[] args) {
+		TwoButton f = new TwoButton();
+		
+		f.setTitle("Sample");
+		//Frame f = new Frame("Sample");
+		f.setVisible(true);
+		f.setSize(500,500);
+		f.setBackground(Color.gray);
+		f.addWindowListener(new MyClas());
+		//int n,i;
+		//int j = 1
+		//for(i=n;i>0;i--) {
+			//j = j*n;
+		//}
+	}
+}
+class MyClas extends WindowAdapter{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+}
+}
