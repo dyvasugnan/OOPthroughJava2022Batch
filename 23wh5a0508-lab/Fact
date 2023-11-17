@@ -13,7 +13,6 @@ class MyButton extends Frame implements ActionListener{
 		this.setLayout(null);
 		t1=new TextField(100);
 		t2=new TextField(100);
-		t2.setText(Fact1);
 		t1.setBounds(150,50,100,50);
 		t2.setBounds(150,100,100,50);
 		this.add(t1);
@@ -36,25 +35,7 @@ class MyButton extends Frame implements ActionListener{
 		l2.setBounds(50,100,100,50);
 	}
 	public void actionPerformed(ActionEvent ae) {
-		Scanner sc = new Scanner(System.in);
-		int a = sc.nextInt();
-		String str;
-		str = b1.getActionCommand();
-		if(str.equals(a));
-		{
-			if(a==0)
-			{
-				System.out.println("enter the crt one");
-			}
-			int Factnum = a*(a-1);
-			int Fact1 = Factnum*a;
-
-		}
-		str = b2.getActionCommand();
-		if(str.equals("Green"))
-			this.setBackground(Color.green);
-		
-	}
+		 b1.getActionCommand();
 }
 
 public class First {
