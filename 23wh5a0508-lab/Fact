@@ -34,8 +34,10 @@ class MyButton extends Frame implements ActionListener{
 		l1.setBounds(50,50,100,50);
 		l2.setBounds(50,100,100,50);
 	}
-	public void actionPerformed(ActionEvent ae) {
-		 b1.getActionCommand();
+	public void actionPerformed(ActionEvent ae) { 
+		b1.getActionCommand();
+	}
+
 }
 
 public class First {
@@ -45,7 +47,6 @@ public class First {
 		f.setVisible(true);
 		f.setSize(400,400);
 		f.addWindowListener(new Demo());
-		
 	}
 
 }
