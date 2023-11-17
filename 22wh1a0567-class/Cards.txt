@@ -1,0 +1,63 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int i, j;
+        int mat[][] = new int[m][m];
+        int q1=0, q2=0, q3=0, q4=0;
+
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < m; j++) {
+                q1 = mat[i][j];
+            }
+        }
+
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < m; j++) {
+                q2 = mat[i][j];
+            }
+        }
+
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < m; j++) {
+                q3 = mat[i][j];
+            }
+        }
+
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < m; j++) {
+                q4 = mat[i][j];
+            }
+        }
+
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < m; j++) {
+                if (q1 == mat[i][j]) {
+                    int x = i, y = j;
+
+                    if (q2 != mat[x][j] && q2 != mat[i][y] && q2 != mat[x + 1][y + 1] && q2 != mat[x - 1][y + 1] && q2 != mat[x + 1][y - 1] && q2 != mat[x - 1][y - 1] && x + 1 < m && x - 1 < m && y + 1 < m && y - 1 < m) {
+                        System.out.print("q2 and q1 are in correct positions");
+
+                        if (q2 == mat[i][j]) {
+                            int a = i, b = j;
+
+                            if (q3 != mat[a][b + 1] && q3 != mat[a + 1][b] && q3 != mat[a - 1][b] && q3 != mat[a][b - 1] && a + 1 < m && b + 1 < m && a - 1 < m && b - 1 < m) {
+                                System.out.print("q3 is in a correct position");
+
+                                if (q3 == mat[a][b]) {
+                                    int p = a, q = b;
+
+                                    if (q4 != mat[p][q + 1] && q4 != mat[p + 1][q] && q4 != mat[p - 1][q] && q4 != mat[p][q - 1] && p + 1 < m && q + 1 < m && p - 1 < m && q - 1 < m) {
+                                        System.out.print("q4 is in a correct position");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
