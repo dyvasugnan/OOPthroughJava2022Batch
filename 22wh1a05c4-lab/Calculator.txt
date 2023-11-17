@@ -1,0 +1,139 @@
+package studentreg;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.Label;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+class MyButton14 extends Frame implements ActionListener{
+	Button b1,b2,b3,b4,b5,b6;
+	Label l1,l2,l3;
+	TextField t1,t2,t3;
+	MyButton14(){
+		this.setLayout(null);
+		b1=new Button("ADD");
+		b2=new Button("SUB");
+		b3=new Button("MUL");
+		b4=new Button("DIV");
+		b5=new Button("MOD");
+		b6=new Button("CLEAR");
+		t1=new TextField(50);
+		t2=new TextField(50);
+		t3=new TextField(50);
+		l1=new Label("NUMBER1");
+		l2=new Label("NUMBER2");
+		l3=new Label(" RESULT");
+		b1.setBounds(100, 300, 80, 30);
+		b2.setBounds(200, 300, 80, 30);
+		b3.setBounds(300, 300, 80, 30);
+		b4.setBounds(400, 300, 80, 30);
+		b5.setBounds(500, 300, 80, 30);
+		b6.setBounds(600, 300, 80, 30);
+		t1.setBounds(300,100,100,30);
+		t2.setBounds(300,180,100,30);
+		t3.setBounds(300,250,100,30);
+		l3.setBounds(100,250,100,30);
+
+		l1.setBounds(100,100,80,30);
+		l2.setBounds(100,180,80,30);
+		this.add(b1);
+		this.add(b2);
+		this.add(b3);
+		this.add(b4);
+		this.add(b5);
+		this.add(b6);
+		
+		this.add(t1);
+		this.add(t2);
+		this.add(t3);
+		this.add(l3);
+		this.add(l1);
+		this.add(l2);
+
+		
+		t2.addActionListener(this);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		b4.addActionListener(this);
+		b5.addActionListener(this);
+		b6.addActionListener(this);
+		
+
+		
+
+	}
+    @Override
+
+			public void actionPerformed(ActionEvent ae) {
+    	String str1=ae.getActionCommand();
+    	double n1=Double.parseDouble(t1.getText());
+		double n2=Double.parseDouble(t2.getText());
+		if(str1.equals("ADD")) {
+			double sum=n1+n2;
+			t3.setText(String.valueOf(sum));
+		}
+		if(str1.equals("SUB")) {
+			double diff=n1-n2;
+			t3.setText(String.valueOf(diff));
+		}
+		if(str1=="MUL") {
+			double product=n1*n2;
+			t3.setText(String.valueOf(product));
+			
+		}
+		if(str1=="DIV") {
+			double quotient=n1/n2;
+			t3.setText(String.valueOf(quotient));
+		}if(str1=="MOD") {
+			double quotient=n1%n2;
+			t3.setText(String.valueOf(quotient));
+		}
+		
+		if(str1=="CLEAR") {
+			t1.setText("");
+			t2.setText("");
+			t3.setText("");
+		}
+
+		
+
+	    }
+
+		public void setTitle(String string) {
+			// TODO Auto-generated method stub
+			
+		}
+
+}
+
+public class Cal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyButton14 f=new MyButton14();
+
+		f.setTitle("CALCULATOR");
+
+		f.setVisible(true);
+
+		f.setSize(700,400);
+
+		f.setBackground(Color.pink );
+
+		f.addWindowListener(new MyClass10());
+
+	}
+
+}
+class MyClass10 extends WindowAdapter{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+	}
+
+
+
+}
