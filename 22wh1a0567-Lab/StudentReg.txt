@@ -1,0 +1,120 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.color.*;
+class MyButton extends Frame{
+	Button b1,b2;
+	TextField t1,t2,t3,t7;
+	Label l1,lname,lfname,age,gender,course,hobbies,address;
+	Checkbox c1,c2,c3,c4,c5,c6;
+	//Choice ch1;
+	MyButton(){
+		this.setLayout(null);
+		//ch1=new Choice("java");
+		c1=new Checkbox("Male");
+		c2=new Checkbox("Female");
+		c3=new Checkbox("Singing",true);
+		c4=new Checkbox("Playing");
+		c5=new Checkbox("Painting");
+		c6=new Checkbox("Badminton");
+		b1=new Button("Save");
+		b2=new Button("Clear All");
+		t1=new TextField(40);
+		t2=new TextField(30);
+		t3=new TextField(40);
+		//t4=new TextField(40);
+		//t5=new TextField(40);
+		//t6=new TextField(40);
+		t7=new TextField(40);
+		//l1=new Label("Student");
+		lname=new Label("   Name");
+		lfname=new Label("Father's Name");
+		age=new Label("  Age ");
+		gender=new Label("Gender");
+		course=new Label("Course");
+		hobbies=new Label("Hobbies");
+		address=new Label("Address");
+		b1.setBounds(500,600,100,50);
+		b2.setBounds(350,600,100,50);
+		t1.setBounds(250,100,300,30);
+		t2.setBounds(250,150,300,30);
+		t3.setBounds(250,200,300,30);
+		//t4.setBounds(250,250,300,30);
+		//t5.setBounds(250,300,300,30);
+		//t6.setBounds(250,350,300,30);
+		t7.setBounds(250,400,300,60);
+		c1.setBounds(250,250,60,30);
+		c2.setBounds(350,250,60,30);
+		c3.setBounds(350,350,60,30);
+		c4.setBounds(250,350,60,30);
+		c5.setBounds(450,350,60,30);
+		c6.setBounds(250,250,60,30);
+	//	ch1.setBounds(150,300,30,30);
+		//l1.setBounds(300,300,50,40);
+		lname.setBounds(100,100,60,30);
+		lfname.setBounds(100,150,90,30);
+		age.setBounds(100,200,40,30);
+		gender.setBounds(100,250,60,30);
+		course.setBounds(100,300,60,30);
+		hobbies.setBounds(100,350,60,30);
+		address.setBounds(100,400,70,30);
+		//this.add(ch1);
+		this.add(b1);
+		this.add(b2);
+		this.add(t1);
+		this.add(t2);
+		this.add(t3);
+		//this.add(t4);
+		//this.add(t5);
+		//this.add(t6);
+		this.add(t7);
+		//this.add(l1);
+		this.add(lname);
+		this.add(lfname);
+		this.add(age);
+		this.add(gender);
+		this.add(course);
+		this.add(hobbies);
+		this.add(address);
+		this.add(c1);
+		this.add(c2);
+		this.add(c3);
+		this.add(c4);
+		this.add(c5);
+		this.add(c5);
+		 setFont(new Font("Arial", Font.BOLD, 13));
+	        setForeground(Color.black);
+	}
+	public void paint(Graphics g) {
+        super.paint(g);
+        g.drawString("Student Registration Form",80,80);
+    }
+	public void drawString(String string, int i, int j) {
+		// TODO Auto-generated method stub
+
+	}
+	public void setColor(Color gray) {
+		// TODO Auto-generated method stub
+
+	}
+}
+public class StudentRegForm {
+
+	public static void main(String[] args) {
+		MyButton f=new MyButton();
+		Font f1=new Font("Arial",Font.BOLD,13);
+		f.setFont(f1);
+	    f.setColor(Color.pink);
+		f.drawString("Student Registration Form",80,80);
+		f.setVisible(true);
+		f.setSize(700,700);
+		f.setBackground(Color.pink);
+		f.addWindowListener(new MyClass()); 
+
+	}
+
+}
+class MyClass extends WindowAdapter implements WindowListener{
+	public void windowClosing(WindowEvent we) { //just declaration
+		System.exit(0);
+	}
+}
