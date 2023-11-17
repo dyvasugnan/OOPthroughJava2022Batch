@@ -1,0 +1,102 @@
+package cse225c4;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Label;
+import java.awt.TextField;
+import java.awt.event.*;
+
+class MyButton10 extends Frame implements ActionListener{
+	Button b1,b2;
+	Label l1,l2;
+	TextField t1,t2;
+	MyButton10(){
+		this.setLayout(null);
+		b1=new Button("CLEAR");
+		b2=new Button("COMPUTE");
+		t1=new TextField();
+		t2=new TextField();
+		l1=new Label("NUMBER");
+		l2=new Label(" FACTORIAL");
+		b1.setBounds(100, 300, 60, 30);
+		b2.setBounds(300, 300, 80, 30);
+		t1.setBounds(300,100,60,30);
+		t2.setBounds(300,190,100,30);
+		l1.setBounds(100,100,60,30);
+		l2.setBounds(100,190,80,30);
+		this.add(b1);
+		this.add(b2);
+		this.add(t1);
+		this.add(t2);
+		this.add(l1);
+		this.add(l2);
+
+		
+		t2.addActionListener(this);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		
+
+		
+
+	}
+    @Override
+
+			public void actionPerformed(ActionEvent ae) {
+		        String str1 = ae.getActionCommand();
+		        int n=Integer.parseInt(t1.getText());
+		        int fact=1;
+		        if(str1.equals("COMPUTE")) {
+		        for(int i=1;i<=n;i++) {
+		        	fact=fact*i;
+		        }
+		        t2.setText(String.valueOf(fact));
+		        }
+		        if(str1.equals("CLEAR")) {
+		        	t1.setText(" ");
+		        	t2.setText(" ");
+		        }
+	    }
+
+		public void setTitle(String string) {
+			// TODO Auto-generated method stub
+			
+		}
+
+}
+
+public class Factorial {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyButton10 f=new MyButton10();
+
+		f.setTitle("SET");
+
+		f.setVisible(true);
+
+		f.setSize(500,500);
+
+		f.setBackground(Color.pink );
+
+		f.addWindowListener(new MyClass10());
+	}
+
+}
+class MyClass10 extends WindowAdapter{
+
+
+
+	public void windowClosing(WindowEvent we) {
+
+
+
+		System.exit(0);
+	}
+
+
+
+}
