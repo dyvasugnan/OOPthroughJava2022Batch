@@ -35,7 +35,7 @@ class Factorial extends Frame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent ae) {
 		String str=ae.getActionCommand();
-		if(str.equals("Calculate Factorial")) {
+		if(str.equals("Compute")) {
 			int n=Integer.parseInt(this.t1.getText());
 			int fact=1;
 			while(n!=0) {
