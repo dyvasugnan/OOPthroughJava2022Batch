@@ -1,0 +1,116 @@
+package cse22wh1a0567;
+
+import java.awt.*;
+import java.awt.event.*;
+
+class MyButton extends Frame implements ActionListener {
+    Button b1, b2, b3, b4, b5, b6;
+    TextField t1;
+    Label l1;
+    String Operation,expression;
+
+    MyButton() {
+        this.setLayout(null);
+        b1 = new Button("+");
+        b2 = new Button("-");
+        b3 = new Button("*");
+        b4 = new Button("/");
+        b5 = new Button("AC");
+        b6 = new Button("=");
+
+        b1.setBounds(50, 350, 70, 20);
+        b2.setBounds(150, 350, 70, 20);
+        b3.setBounds(250, 350, 70, 20);
+        b4.setBounds(350, 350, 70, 20);
+        b5.setBounds(450, 350, 70, 20);
+        b6.setBounds(550, 350, 70, 20);
+
+        this.add(b1);
+        this.add(b2);
+        this.add(b3);
+        this.add(b4);
+        this.add(b5);
+        this.add(b6);
+
+        t1 = new TextField(30);
+        this.add(t1);
+
+        l1 = new Label("calcu:");
+        l1.setBounds(100, 140, 60, 30);
+        this.add(l1);
+
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+
+        t1.setBounds(200, 140, 300, 30);
+
+        this.setBackground(Color.pink);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        String str1 = ae.getActionCommand();
+        if (str1.equals("AC")) {
+            this.t1.setText("");
+            expression = ""; 
+        } 
+        else if (str1.equals("=")) {
+            if (Operation != null) {
+                double result = this.performOperation();
+                this.t1.setText(String.valueOf(result));      
+                }
+        } 
+        else {
+            Operation = str1;
+            String s = t1.getText() + Operation;
+            this.t1.setText(s); 
+        }
+    }
+
+    public double performOperation() {
+    	expression = this.t1.getText();
+    	String[] parts = expression.split("[-+*/]");
+        double n1 = Double.parseDouble(parts[0]);
+        double n2 = Double.parseDouble(parts[1]);
+        double result;
+        if(expression.contains("+")) {
+        	result = n1 + n2;
+        }
+        else if(expression.contains("-")) {
+        	result = n1 - n2;
+        }
+        else if(expression.contains("*")) {
+        	result = n1 * n2;
+        }
+        else{
+        	try {
+        		result = n1 / n2;
+        	}
+        	catch(ArithmeticException e) {
+        		e.printStackTrace();
+        	}
+        	finally {
+        		result = n1/n2;
+        	}
+        }
+		return result;
+    }
+}
+
+public class Minicalu {
+    public static void main(String[] args) {
+        MyButton f = new MyButton();
+        f.setVisible(true);
+        f.setSize(650, 600);
+        f.addWindowListener(new MyClass());
+    }
+}
+
+class MyClass extends WindowAdapter {
+    public void windowClosing(WindowEvent we) {
+        System.exit(0);
+    }
+}
