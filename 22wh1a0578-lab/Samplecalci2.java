@@ -1,0 +1,74 @@
+package cseb_578;
+import java.util.*;
+import java.lang.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyButton57 extends Frame implements ActionListener{
+	Button b1,b2;
+	TextField t1,t2;
+	Label l1,l2;
+	MyButton57(){
+		this.setLayout(null);
+		b1=new Button("CALCULATE");
+		b2=new Button("CLEAR");
+		t1=new TextField();
+		t2=new TextField();
+		l1=new Label("EXPRESSION:");
+	
+		t1.setBounds(100,100,100,50);
+		t2.setBounds(200,100,100,50);
+		b2.setBounds(100,200,100,50);
+		b1.setBounds(100,150,100,50);
+	
+		this.add(b1);
+		this.add(b2);
+		this.add(t1);
+		this.add(t2);
+	
+		b2.addActionListener(this);
+		b1.addActionListener(this);
+
+
+	}
+	public void actionPerformed(ActionEvent ae) {
+	String str=ae.getActionCommand();
+
+	if(str.equals("CALCULATE")) {
+	String a=t1.getText();
+	   if(a.contains("+")) {
+	    int res=Integer.parseInt((a.substring(0,a.indexOf("+"))))+Integer.parseInt(a.substring(a.indexOf("+")+1));
+	t2.setText(String.valueOf(res));}
+	   if(a.contains("-")) {
+	    int res1=Integer.parseInt((a.substring(0,a.indexOf("-"))))-Integer.parseInt(a.substring(a.indexOf("-")+1));
+	t2.setText(String.valueOf(res1));}
+	if(a.contains("*")) {
+	int res2=Integer.parseInt((a.substring(0,a.indexOf("*"))))*Integer.parseInt(a.substring(a.indexOf("*")+1));
+	t2.setText(String.valueOf(res2));}
+	if(a.contains("/")) {
+	int res3=Integer.parseInt((a.substring(0,a.indexOf("/"))))/Integer.parseInt(a.substring(a.indexOf("/")+1));
+	t2.setText(String.valueOf(res3));}
+	}
+	if(str.equals("CLEAR")) {
+	t1.setText("");
+	t2.setText("");
+	}
+
+}
+}
+public class calci_gui {
+
+	public static void main(String[] args) {
+		MyButton57 f= new MyButton57();
+		f.setTitle("Calci");
+		f.setVisible(true);
+		f.setSize(500,500);
+		f.addWindowListener(new My_Class());
+
+	}
+
+}
+class My_Class extends WindowAdapter{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+	}
+} 
