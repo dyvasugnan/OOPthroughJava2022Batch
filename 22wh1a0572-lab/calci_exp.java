@@ -43,17 +43,17 @@ public class gui extends Frame implements ActionListener{
 	
 		if(str.equals("CALCULATE")) {
 			String a=t1.getText();
-		    if(a.charAt(1)=='+') {
-		    	int res=Integer.parseInt((a.substring(0,1)))+Integer.parseInt(a.substring(2));
+		    if(a.contains("+")) {
+		    	int res=Integer.parseInt((a.substring(0,a.indexOf("+"))))+Integer.parseInt(a.substring(a.indexOf("+")+1));
 				t2.setText(String.valueOf(res));}
-		    if(a.charAt(1)=='-') {
-		    	int res1=Integer.parseInt((a.substring(0,1)))-Integer.parseInt(a.substring(2));
+		    if(a.contains("-")) {
+		    	int res1=Integer.parseInt((a.substring(0,a.indexOf("-"))))-Integer.parseInt(a.substring(a.indexOf("-")+1));
 				t2.setText(String.valueOf(res1));}
-			if(a.charAt(1)=='*') {
-				int res2=Integer.parseInt((a.substring(0,1)))*Integer.parseInt(a.substring(2));
+			if(a.contains("*")) {
+				int res2=Integer.parseInt((a.substring(0,a.indexOf("*"))))*Integer.parseInt(a.substring(a.indexOf("*")+1));
 				t2.setText(String.valueOf(res2));}
-			if(a.charAt(1)=='/') {
-				int res3=Integer.parseInt((a.substring(0,1)))/Integer.parseInt(a.substring(2));
+			if(a.contains("/")) {
+				int res3=Integer.parseInt((a.substring(0,a.indexOf("/"))))/Integer.parseInt(a.substring(a.indexOf("/")+1));
 				t2.setText(String.valueOf(res3));}
 			}
 		if(str.equals("CLEAR"))	{
@@ -80,4 +80,3 @@ class MyClass1 extends WindowAdapter
 		public void windowClosing(WindowEvent we) {
 		System.exit(0);
 		}}
-
