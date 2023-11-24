@@ -1,0 +1,112 @@
+package MyGUI;
+import java.awt.*;
+import java.awt.event.*;
+class MyButton extends Frame implements ActionListener{
+	Button b1,b2,b3,b4,b5;
+	TextField t1;
+	Label l1,l2,l3;
+	MyButton(){
+		this.setLayout(null);
+        b1=new Button("+");
+        b2=new Button("-");
+        b3=new Button("*");
+        b4=new Button("%");
+        b5=new Button("=");
+        b1.setBounds(50,350,70,20);
+        b2.setBounds(150,350,70,20);
+        b3.setBounds(250,350,70,20);
+        b4.setBounds(350,350,70,20);
+        b5.setBounds(450,350,70,20);
+        this.add(b1);
+        this.add(b2);
+        this.add(b3);
+        this.add(b4);
+        this.add(b5);
+        t1=new TextField(30);
+        this.add(t1);
+        l1=new Label("Number1");
+        l1.setBounds(100,140,50,30);
+        this.add(l1);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        t1.setBounds(200,140,150,30);
+        this.setBackground(Color.gray);
+	}
+	public void actionPerformed(ActionEvent ae) {
+		String str1=ae.getActionCommand();
+		String tf=t1.getText();
+		double res;
+		if(str1.equals("+")) {
+			tf=tf.concat("+");
+			t1.setText(tf);
+			
+		}
+		if(str1.equals("-")) {
+			tf=tf.concat("-");
+			t1.setText(tf);
+			
+		}
+		if(str1.equals("*")) {
+			tf=tf.concat("*");
+			t1.setText(tf);
+			
+		}
+		if(str1.equals("%")) {
+			tf=tf.concat("%");
+			t1.setText(tf);
+			
+		}
+		
+		if(str1.equals("=")) {
+			String s=t1.getText();
+			char c1=s.charAt(0);
+			char c2=s.charAt(1);
+			char c3=s.charAt(2);
+			String op=String.valueOf(c2);
+			if(op.equals("+")) {
+				t1.setText("");
+				double n1=Double.parseDouble(String.valueOf(c1));
+				double n2=Double.parseDouble(String.valueOf(c3));
+				res=n1+n2;
+				t1.setText(String.valueOf(res));
+			}
+			if(op.equals("-")) {
+				t1.setText("");
+				double n1=Double.parseDouble(String.valueOf(c1));
+				double n2=Double.parseDouble(String.valueOf(c3));
+				res=n1-n2;
+				t1.setText(String.valueOf(res));
+			}
+			if(op.equals("*")) {
+				t1.setText("");
+				double n1=Double.parseDouble(String.valueOf(c1));
+				double n2=Double.parseDouble(String.valueOf(c3));
+				res=n1*n2;
+				t1.setText(String.valueOf(res));
+			}
+			if(op.equals("%")) {
+				t1.setText("");
+				double n1=Double.parseDouble(String.valueOf(c1));
+				double n2=Double.parseDouble(String.valueOf(c3));
+				res=n1%n2;
+				t1.setText(String.valueOf(res));
+			}
+		}
+		}
+}
+public class calci_tf1 {
+	public static void main(String[] args) {
+		MyButton f=new MyButton();
+		f.setVisible(true);
+		f.setSize(600,600);
+		f.addWindowListener(new MyClass());
+	}
+}
+class MyClass extends WindowAdapter{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+	}
+}
