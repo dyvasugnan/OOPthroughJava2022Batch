@@ -51,31 +51,31 @@ public class Calcul extends Frame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent ae) {
 		String str=ae.getActionCommand();
-		if(str=="Add") {
+		if(str=="add") {
 			int n1=Integer.parseInt(t1.getText());
 			int n2=Integer.parseInt(t2.getText());
 			int result=n1+n2;
 			t3.setText(String.valueOf(result));
 		}
-		if(str=="Sub") {
+		if(str=="sub") {
 			int n1=Integer.parseInt(t1.getText());
 			int n2=Integer.parseInt(t2.getText());
 			int result=n1-n2;
 		 t3.setText(String.valueOf(result));
 		}
-		if(str=="Mult") {
+		if(str=="mult") {
 			int n1=Integer.parseInt(t1.getText());
 			int n2=Integer.parseInt(t2.getText());
 			int result=n1*n2;
 	    	t3.setText(String.valueOf(result));
 		}
-		if(str=="Divi") {
+		if(str=="divi") {
 			int n1=Integer.parseInt(t1.getText());
 			int n2=Integer.parseInt(t2.getText());
 			int result=n1/n2;
 			t3.setText(String.valueOf(result));
 		}
-		if(str=="Clear") {
+		if(str=="clear") {
      		t1.setText("");
 			t2.setText("");
 			t3.setText("");	
