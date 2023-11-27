@@ -1,0 +1,128 @@
+package pragna;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.TextField;
+import java.awt.event.*;
+
+class MyButton2 extends Frame implements ActionListener{
+
+
+
+	Button b1,b2,b3,b4;
+	private int ovalY=150;
+	private int ovalX=150;
+
+	//TextField t1;
+
+	MyButton2(){
+
+		this.setLayout(null);
+
+		b1=new Button("UP");
+		b2=new Button("DOWN");
+		b3=new Button("LEFT");
+		b4=new Button("RIGHT");
+		b1.setBounds(100, 300, 50, 20);
+		b2.setBounds(200, 300, 50, 20);
+		b3.setBounds(100, 350, 50, 20);
+		b4.setBounds(200, 350, 50, 20);
+		this.add(b1);
+		this.add(b2);
+		this.add(b3);
+		this.add(b4);
+
+		
+
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		b4.addActionListener(this);
+
+		
+
+	}
+
+			public void actionPerformed(ActionEvent ae) {
+			    
+    	        Graphics g = this.getGraphics();
+
+		        String str1 = ae.getActionCommand();
+		        switch (str1) {
+		            case "UP":
+		                ovalY -= 10;
+		                break;
+		            case "DOWN":
+		                ovalY += 10;
+		                break;
+		            case "LEFT":
+		                ovalX -= 10;
+		                break;
+		            case "RIGHT":
+		                ovalX += 10;
+		                break;
+		        }
+
+		        repaint();
+		    }
+
+		   
+		    public void paint(Graphics g) {
+		        super.paint(g);
+		        g.drawOval(ovalX, ovalY, 60, 60);
+		        g.setColor(Color.red);
+		        g.fillOval(ovalX, ovalY, 60, 60);
+		        Font f1=new Font("Arial",Font.BOLD,30);
+				g.setFont(f1);
+				g.setColor(Color.black);
+				g.drawString("BAll MOVEMENT",70,100);
+		    }
+
+		public void setTitle(String string) {
+			// TODO Auto-generated method stub
+			
+		}
+
+}
+
+public class BallMovement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyButton2 f=new MyButton2();
+
+		f.setTitle("SET");
+
+		f.setVisible(true);
+
+		f.setSize(400,400);
+
+		f.setBackground(Color.pink );
+
+		f.addWindowListener(new MyClass2());
+
+	
+
+	}
+
+}
+class MyClass2 extends WindowAdapter{
+
+
+
+	public void windowClosing(WindowEvent we) {
+
+
+
+		System.exit(0);
+
+
+
+	}
+
+
+
+}
