@@ -1,0 +1,32 @@
+//import java.Math.*;
+public class Solution {
+    public int solve(int A) {
+        int result=0;
+        int rem=0;
+          int temp=A;
+        if(A>=0 && A<=9){
+            return 1;
+        }
+        int totaldigits=String.valueOf(A).length();
+         while(A>0){
+           rem=A%10;
+           result+=Math.pow(rem,totaldigits);
+           A=A/10;
+           }
+          if(temp==result){
+               return 1;
+          }
+          else{
+              return 0;
+          }
+         // return ;
+    
+}
+public static void main(String[] args){
+     Solution sol=new Solution(); 
+        Scanner s=new Scanner(System.in);
+        int A=s.nextInt();
+        int result=sol.solve(A);
+        System.out.print(result);
+}
+}
