@@ -1,5 +1,4 @@
 package cseb;
-
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Frame;
@@ -10,18 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-public class Calci extends Frame implements ActionListener {
+public class CalSi extends Frame implements ActionListener {
 
     Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16;
     TextArea t1;
-
-    Calci() {
+    Calsi() {
         this.setLayout(new BorderLayout());
-
         t1 = new TextArea(3, 5);
         add(t1, BorderLayout.NORTH);
-
         Panel p = new Panel(new GridLayout(4, 4));
         add(p);
 
@@ -58,7 +53,6 @@ public class Calci extends Frame implements ActionListener {
         p.add(b14);
         p.add(b15);
         p.add(b16);
-
         b1.addActionListener(this);
         b2.addActionListener(this);
         b3.addActionListener(this);
@@ -114,7 +108,7 @@ public class Calci extends Frame implements ActionListener {
             }
         }
     }
-    if (str.equals("CLR")) {
+    if (str.equals("CLEAR")) {
         this.t1.setText("");
     } else {
         for (int i = 0; i < 10; i++) {
@@ -125,20 +119,16 @@ public class Calci extends Frame implements ActionListener {
         }
     }
 }
-
-
-    
-
     public static void main(String[] args) {
         Calsi f = new Calsi();
-        f.setTitle("Calci");
+        f.setTitle("CALCULATOR");
         f.setVisible(true);
         f.setSize(500, 500);
-        f.addWindowListener(new MyClass1());
+        f.addWindowListener(new MyClass());
     }
 }
 
-class MyClass1 extends WindowAdapter {
+class MyClass extends WindowAdapter {
     public void windowClosing(WindowEvent we) {
         System.exit(0);
     }
