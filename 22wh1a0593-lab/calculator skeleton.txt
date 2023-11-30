@@ -1,0 +1,252 @@
+import java.awt.*;
+
+import java.awt.event.*;
+
+class MyButton2 extends Frame implements ActionListener{
+
+Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16;
+
+TextArea t1;
+
+Panel p;
+
+int num1,num2,res;
+
+String s1,s2,s3;
+
+MyButton2(){
+
+	setLayout(new BorderLayout());
+
+	t1 = new TextArea(3,5);
+
+	add(t1,BorderLayout.NORTH);
+
+	p = new Panel(new GridLayout(4,4));
+
+	add(p);
+
+	b1 = new Button("1");
+
+	b2 = new Button("2");
+
+	b3 = new Button("3");
+
+	b4 = new Button("4");
+
+	b5 = new Button("5");
+
+	b6 = new Button("6");
+
+	b7 = new Button("7");
+
+	b8 = new Button("8");
+
+	b9 = new Button("9");
+
+	b10 = new Button("0");
+
+	b11 = new Button("+");
+
+	b12 = new Button("-");
+
+	b13 = new Button("*");
+
+	b14 = new Button("%");
+
+	b15 = new Button("clear");
+
+	b15 = new Button("=");
+
+	p.add(b1);
+
+	p.add(b2);
+
+	p.add(b3);
+
+	p.add(b4);
+
+	p.add(b5);
+
+	p.add(b6);
+
+	p.add(b7);
+
+	p.add(b8);
+
+	p.add(b9);
+
+	p.add(b10);
+
+	p.add(b11);
+
+	p.add(b12);
+
+	p.add(b13);
+
+	p.add(b14);
+
+	p.add(b15);
+
+	
+
+}
+
+public void actionPerformed(ActionEvent ae) {
+
+	if(ae.getSource()==b1) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}	
+
+	else if(ae.getSource()==b2) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}	
+
+	else if(ae.getSource()==b3) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}	
+
+	else if(ae.getSource()==b4) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}	
+
+	if(ae.getSource()==b5) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}	
+
+	if(ae.getSource()==b6) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}	
+
+	if(ae.getSource()==b7) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}	
+
+	if(ae.getSource()==b8) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}
+
+	if(ae.getSource()==b9) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}
+
+	if(ae.getSource()==b10) {
+
+		s1 = t1.getText();
+
+		s2 =s1 + "1";
+
+		t1.setText(s2);
+
+
+
+	}	
+
+}
+
+}
+
+public class Calculator3{
+
+		public static void main(String[] args) {
+
+		MyButton2 f=new MyButton2();
+
+		f.setTitle("Sample Frame");
+
+		f.setVisible(true);
+
+		f.setSize(400,400);
+
+		f.addWindowListener(new MyClass2());
+
+
+
+		 	}
+
+
+
+		}
+
+		class MyClass2 extends WindowAdapter{
+
+		public void windowClosing(WindowEvent we) {
+
+		System.exit(0);
+
+			}
+
+		}
+
