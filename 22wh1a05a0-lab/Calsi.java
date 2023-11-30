@@ -34,7 +34,7 @@ public class CalSi extends Frame implements ActionListener {
         b12 = new Button("*");
         b13 = new Button("9");
         b14 = new Button("/");
-        b15 = new Button("CLR");
+        b15 = new Button("CLEAR");
         b16 = new Button("=");
 
         p.add(b1);
