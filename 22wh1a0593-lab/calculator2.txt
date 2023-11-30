@@ -1,0 +1,127 @@
+import java.awt.*;
+
+import java.awt.event.*;
+
+import java.util.StringTokenizer;
+
+class MyButtones extends Frame implements ActionListener{
+
+Button b1,b2;
+
+TextField t1;
+
+MyButtones(){
+
+this.setLayout(null);
+
+b1=new Button("calculate");
+
+b2=new Button("clear");
+
+t1=new TextField();
+
+b1.setBounds(100,300,100,50);
+
+t1.setBounds(200,100,100,50);
+
+b2.setBounds(100,350,100,50);
+
+this.add(b1);
+
+this.add(t1);
+
+this.add(b2);
+
+b1.addActionListener(this);
+
+t1.addActionListener(this);
+
+b2.addActionListener(this);
+
+}
+
+public void actionPerformed(ActionEvent ae) {
+
+String str;
+
+str=ae.getActionCommand();
+
+if(str.equals("calculate")) {
+
+String str1;
+
+str1 = t1.getText();
+
+StringTokenizer br = new StringTokenizer(str1," ");
+
+String s1= br.nextToken();
+
+int n = Integer.parseInt(s1);
+
+String s= br.nextToken();
+
+String s2= br.nextToken();
+
+int m = Integer.parseInt(s2);
+
+if(s.equals("+")) {
+
+int add = n + m;
+
+t1.setText(String.valueOf(add));
+
+}
+
+else if(s.equals("-")) {
+
+int sub = n-m;
+
+t1.setText(String.valueOf(sub));
+
+}
+
+else if(s.equals("*")) {
+
+int prod = n * m;
+
+t1.setText(String.valueOf(prod));
+
+}
+
+else if (s.equals("/")){
+
+int div=n / m;
+
+t1.setText(String.valueOf(div));
+
+}
+
+}
+
+else {
+
+t1.setText(" ");
+
+}
+
+}
+
+}
+
+public class Calc {
+
+public static void main(String[] args) {
+
+MyButtones f=new MyButtones();
+
+f.setTitle("Sample Frame");
+
+f.setVisible(true);
+
+f.setSize(400,400);
+
+f.addWindowListener(new MyClasses());
+
+}
+
+}
