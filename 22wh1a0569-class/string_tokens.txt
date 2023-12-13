@@ -1,0 +1,19 @@
+
+import java.util.*;
+import java.io.*;
+class Solution{
+    public static void main(String args[])throws IOException{
+        InputStreamReader isr=new InputStreamReader(System.in);
+        BufferedReader br=new BufferedReader(isr);
+        String str=br.readLine();
+        StringTokenizer st=new StringTokenizer(str," ,.!?_'@");
+        System.out.println(st.countTokens());
+        while(st.hasMoreTokens()){
+            String ss=st.nextToken();
+            System.out.println(ss);
+        }
+    }
+}
+     
+    
+

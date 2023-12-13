@@ -1,0 +1,25 @@
+public class Solution {
+    public int solve(int[] A, int[] B, int C) {
+       int m=A.length;
+       int n=B.length;
+       int cnt1=0;
+       int cnt2=0;
+       int i;
+       for(i=0;i<n;i++) {
+           if(A[i]>C){
+               cnt1++;
+           }
+       }
+       for(i=0;i<m;i++){
+           if(B[i]<C){
+               cnt2++;
+           }
+       }
+       if(cnt1>cnt2){
+           return cnt1;
+       }
+       else{
+           return cnt2;
+       }
+    }
+}

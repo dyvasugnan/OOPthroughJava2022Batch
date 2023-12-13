@@ -1,0 +1,18 @@
+import java.util.*;
+
+
+
+
+public class Solution {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int x=sc.nextInt();
+        int i;
+        for(i=1;i<=10;i++){
+            int result=x*i;
+            System.out.println(x + " x " + i + " = " + result);
+            
+        }
+        sc.close();
+    }
+}
