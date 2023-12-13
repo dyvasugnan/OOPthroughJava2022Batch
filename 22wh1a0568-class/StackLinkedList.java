@@ -10,7 +10,7 @@ class Node1 {
 }
 
 public class StackLinkedList {
-    private static Node1 top = null;
+    static Node1 top = null;
 
     public static void push(int data) {
         Node1 newNode = new Node1(data);
