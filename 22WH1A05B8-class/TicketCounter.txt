@@ -1,0 +1,33 @@
+package prathibha5b8;
+
+class MyThread1 extends Thread{
+	String str;
+	MyThread1(String string){
+		str=string;
+		}
+	public void run() {
+		for(int i=1;i<10;i++) {
+			System.out.println(str+" "+i+"person");
+			try {
+				Thread.sleep(100);
+			}
+			catch(InterruptedException ie) {
+				System.out.println(ie);
+			}
+		}
+	}
+}
+public class TicketCounter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyThread1 obj1=new MyThread1("Cut the ticket");
+		MyThread1 obj2=new MyThread1("Show the seat");
+		Thread t1=new Thread(obj1);
+		Thread t2=new Thread(obj2);
+		t1.start();
+		t2.start();
+
+	}
+
+}
