@@ -1,0 +1,53 @@
+package prathibha5b8;
+
+class MyEvenOdd extends Thread{
+	int n;
+	MyEvenOdd(int i){
+		n=i;
+	}
+	public void run() {
+		if (Thread.currentThread().getName().equals("Thread1:")) {
+            even();
+        } else if (Thread.currentThread().getName().equals("Thread2:")) {
+            odd();
+        }
+	}
+	void even() {
+		for(int i=0;i<n;i++) {
+			if(i%2==0) {
+				System.out.println(Thread.currentThread().getName()+i);
+			}
+		}
+		try {
+            Thread.sleep(10);
+        } catch (InterruptedException ie) {
+            System.out.println(ie);
+        }
+	}
+	void odd() {
+		for(int i=0;i<n;i++) {
+			if(i%2!=0) {
+				System.out.println(Thread.currentThread().getName()+i);
+			}
+		}
+		try {
+            Thread.sleep(10);
+        } catch (InterruptedException ie) {
+            System.out.println(ie);
+        }
+	}
+}
+public class EvenOdd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyEvenOdd obj=new MyEvenOdd(50);
+		Thread t1=new Thread(obj);
+		Thread t2=new Thread(obj);
+		t1.setName("Thread1:");
+		t2.setName("Thread2:");
+		t1.start();
+		t2.start();
+	}
+
+}
