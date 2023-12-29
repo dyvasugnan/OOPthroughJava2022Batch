@@ -68,9 +68,16 @@ class Calc extends Frame implements ActionListener{
 		if(str.equals("Divide")) {
 			int n1 = Integer.parseInt(num1.getText());
 			int n2 = Integer.parseInt(num2.getText());
-			int res = n1/n2;
-			String s = Integer.toString(res);
-			r.setText(s);
+			int n1 = Integer.parseInt(num1.getText());
+			int n2 = Integer.parseInt(num2.getText());
+			try{
+				int res = n1/n2;
+				String s = Integer.toString(res);
+				r.setText(s);
+			}
+			catch(ArithmeticException ae1){
+				r.setText("Arithmetic Exception");
+			}
 		}
 		if(str.equals("Clear")) {
 			num1.setText(null);
