@@ -14,7 +14,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent; 
 import java.util.StringTokenizer;
 class Calc1 extends Frame implements ActionListener{
-	Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15;
+	Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16;
 	TextArea t1;
 	Panel p;
 	int num1,num2,res;
@@ -39,6 +39,7 @@ class Calc1 extends Frame implements ActionListener{
 		b13 = new Button("*");
 		b14 = new Button("/");
 		b15 = new Button("Clear");
+		b16 = new Button("=");
 		b1.setBounds(50, 100, 60, 30);
 		b2.setBounds(120, 100, 60, 30);
 		b3.setBounds(190, 100, 60, 30);
@@ -54,6 +55,7 @@ class Calc1 extends Frame implements ActionListener{
 		b13.setBounds(50, 250, 60, 30);
 		b14.setBounds(120, 250, 60, 30);
 		b15.setBounds(190, 250, 60, 30);
+		b16.setBounds(260, 250, 60, 30);
 		this.add(b1);
 		this.add(b2);
 		this.add(b3);
@@ -69,6 +71,7 @@ class Calc1 extends Frame implements ActionListener{
 		this.add(b13);
 		this.add(b14);
 		this.add(b15);
+		this.add(b16);
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
@@ -84,6 +87,7 @@ class Calc1 extends Frame implements ActionListener{
 		b13.addActionListener(this);
 		b14.addActionListener(this);
 		b15.addActionListener(this);
+		b16.addActionListener(this);
 	}
 	public void actionPerformed(ActionEvent ae) {
 		String s1,s2;
@@ -162,9 +166,14 @@ class Calc1 extends Frame implements ActionListener{
 			s2 = s1 + "Clear";
 			t1.setText(s2);
 		}
+		if(ae.getSource()==b16) {
+			s1 = t1.getText();
+			s2 = s1 + "=";
+			t1.setText(s2);
+		}
 	}
 }
-public class Cal {
+public class Panel {
 	public static void main(String[] args) {
 		Calc1 f = new Calc1();
 		f.setTitle("Calculator");
