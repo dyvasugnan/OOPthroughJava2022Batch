@@ -1,0 +1,64 @@
+import java.util.Random;
+
+class even extends Thread{
+	int x;
+	public even(int x) {
+		this.x=x;
+	}
+	public void run() {
+		System.out.println("num"+x+"square"+x*x);
+	}
+
+}
+class odd extends Thread{
+	int x;
+	public odd(int x) {
+		this.x=x;
+	}
+		public void run() {
+			System.out.println("num"+x+"cube"+x*x);
+
+		}
+}
+class MainThread extends Thread{
+	int num;
+	public void run(){
+		Random r=new Random();
+		try {
+			for(int i=0;i<5;i++) {
+				num=r.nextInt(100);
+				System.out.println("Main Thread generateed num"+num);
+				if(num % 2 ==0) {
+					Thread t1 =new Thread(new even(num));
+					t1.start();
+			
+		}
+		else {
+			Thread t2 =new Thread(new odd(num));
+			t2.start();
+		}
+		}
+		Thread.sleep(10000);
+			}
+			
+			catch(InterruptedException ie) {
+				
+			}
+	
+}
+}
+
+
+public class Demo {
+		public static void main(String[] args) {
+
+			MainThread m=new MainThread();
+
+			Thread t3=new Thread(m);
+
+			t3.start();
+
+
+	}
+
+}
