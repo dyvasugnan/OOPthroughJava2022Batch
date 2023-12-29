@@ -1,0 +1,48 @@
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+class MyThread1 extends Thread{
+	//static int n=(int)Math.random()*10;
+	int min=1;
+	int max=10;
+	int n= (int)Math.floor(Math.random() * (max - min + 1) + min);
+	int rem;
+	static Object lock =new Object();
+	MyThread1(int r){
+		rem=r;
+	}
+	void print() {
+		System.out.println(Thread.currentThread().getName()+" "+n++);
+	}
+	public void run() {
+		synchronized(lock) {
+			if(n%2==0) {
+				System.out.println(n*n);
+			}
+			else {
+				System.out.println(n*n*n);
+			}
+			while(n%2!=rem) {
+				try {
+					Thread.sleep(1000000);
+					wait();
+				}
+				catch(InterruptedException ie){
+					
+				}
+			}
+			print();
+			lock.notifyAll();	
+		}
+	}
+}
+public class Threading {
+	public static void main(String[] args) throws IOException {
+		MyThread1 even=new MyThread1(0);
+		MyThread1 odd=new MyThread1(1);
+		Thread t1=new Thread(even,"Even Thread");
+		Thread t2=new Thread(odd,"Odd Thread");
+		t1.start();
+		t2.start();
+	}
+}
