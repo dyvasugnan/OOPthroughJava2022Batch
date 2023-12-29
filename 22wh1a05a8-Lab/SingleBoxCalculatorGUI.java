@@ -74,7 +74,7 @@ class MyButtonns extends Frame implements ActionListener {
 		}
 	}
 }
-public class New{
+public class SingleBoxCalculatorGUI{
 	public static void main(String[] args) {
 		MyButtonns f = new MyButtonns();
 		f.setTitle("Simple Calculator");
