@@ -1,0 +1,61 @@
+package cse225b6;
+import java.io.*;
+import java.util.*;
+
+class even extends Thread{
+
+	int x;
+
+public even(int x) {
+	this.x=x;
+
+	}
+
+	public void run() {
+      System.out.println("number"+x+"square"+x*x);
+	}
+}
+class odd extends Thread{
+
+	int x;
+
+public odd(int x) {
+	this.x=x;
+
+	}
+
+	public void run() {
+      System.out.println("number"+x+"cube"+x*x*x);
+	}
+}
+class Randomthreads extends Thread{
+	int num;
+	public void run() {
+		Random rand =new Random();
+		try {
+			for(int i=0;i<=5;i++) {
+				num=rand.nextInt(100);
+				System.out.println("Main thread generated number"+num);
+				if(num%2==0) {
+					Thread t1=new Thread(new even(num));
+					t1.start();
+				}
+				else {
+					Thread t2=new Thread(new odd(num));
+					t2.start();
+				}
+				Thread.sleep(200);
+				}
+		}
+		catch (InterruptedException ie) {
+			System.out.println(ie);
+		}
+	}
+}
+
+public class Multithread {
+	public static void main(String[] args) {
+		Randomthreads r=new Randomthreads();
+		r.start();
+	}
+}
