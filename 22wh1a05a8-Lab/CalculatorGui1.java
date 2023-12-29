@@ -53,9 +53,16 @@ class Calc extends Frame implements ActionListener{
 				num.setText(r2);
 			}
 			if(s.equals("/")) {
-				int res = n1/n2;
-				String r2 = Integer.toString(res);
-				num.setText(r2);
+				int n1 = Integer.parseInt(num1.getText());
+				int n2 = Integer.parseInt(num2.getText());
+				try{
+					int res = n1/n2;
+					String s = Integer.toString(res);
+					r.setText(s);
+				}
+				catch(ArithmeticException ae1){
+					r.setText("Arithmetic Exception");
+				}
 			}
 		}
 		if(str.equals("Clear")) {
