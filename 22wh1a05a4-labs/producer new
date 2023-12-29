@@ -1,0 +1,54 @@
+package threads;
+
+class Producer extends Thread{
+	StringBuffer sb;
+	Producer(){
+		sb=new StringBuffer();
+	}
+	public void run() {
+		synchronized(sb) {
+		for(int i=1;i<=10;i++) {
+			try {
+				sb.append(i+" ");
+				currentThread().sleep(100);
+				System.out.println("app"+i+"value");
+				
+			}
+			catch(InterruptedException ie) {
+				
+			}
+			
+		}
+		sb.notify();
+	}
+}
+class Consumer extends Thread{
+	Producer pr;
+	Consumer(Producer P){
+		pr=P;
+	}
+	public void run() {
+		synchronized(pr.sb) {
+		try {
+			pr.sb.wait();
+		}
+		catch(InterruptedException ie) {
+			
+		}
+		System.out.println("Consuming"+pr.sb);
+	}
+}
+}
+class producer_consumer {
+public void main(String[] args) {
+	Producer P=new Producer();
+	Consumer C=new Consumer(P);
+	Thread t1=new Thread(P);
+	Thread t2=new Thread(C);
+	t2.start();
+	t1.start();
+}
+}
+
+
+	
