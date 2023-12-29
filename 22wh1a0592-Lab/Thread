@@ -1,0 +1,87 @@
+import java.io.*;
+
+class MyThread extends Thread {
+
+static int count=1;
+
+int rem;
+
+static Object lock = new Object();
+
+MyThread(int r){
+
+rem =r;
+
+}
+
+void print()
+
+{
+
+System.out.println(Thread.currentThread().getName()+count++);
+
+}
+
+public void run()
+
+{
+
+for(int i = 1;i<=20;i++)
+
+{
+
+synchronized(lock) {
+
+while(count%2!=rem)
+
+{
+
+try
+
+{
+
+wait();
+
+}
+
+catch(InterruptedException ie) {
+
+}
+
+}
+
+print();
+
+lock.notifyAll();
+
+}
+
+}
+
+}
+
+}
+
+public class Demo
+
+{
+
+public static void main(String args[])throws IOException
+
+{
+
+MyThread even = new MyThread(0);
+
+MyThread odd = new MyThread(1);
+
+Thread t1 = new Thread(even," Even Thread");
+
+Thread t2 = new Thread(odd, "odd Thread");
+
+t1.start();
+
+t2.start();
+
+}
+
+}
