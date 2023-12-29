@@ -1,0 +1,49 @@
+package Java;
+import java.util.*;
+import java.io.*;
+class even extends Thread{
+	int x;
+	public even(int x) {
+	this.x = x;
+}
+public void run() {
+	System.out.println("number" + x + "\nsquare" + x*x);
+}}
+class odd extends Thread{
+	int x;
+	public odd(int x) {
+	this.x=x;
+}
+public void run() {
+	System.out.println("number" + x + "\ncube" + x*x*x);
+	}}
+class RandomThread extends Thread{
+int num;
+	public void run(){
+		//Random rand = new Random();
+		try {
+			for(int i = 1;i<=5;i++) {
+				int num = (int)(Math.random()*100);
+				System.out.println("Main thread generated number" + num);
+				if(num %2 == 0) {
+					Thread t1 = new Thread(new even(num));
+					t1.start();
+				}
+				else {
+					Thread t2 = new Thread(new odd(num));
+					t2.start();
+				}//end of else
+				Thread.sleep(100);
+			}//end of for
+		}
+		catch(InterruptedException ie) {}
+	}
+}
+public class Random {
+
+	public static void main(String[] args) {
+		RandomThread r = new RandomThread();
+		r.start();
+
+	}
+}
