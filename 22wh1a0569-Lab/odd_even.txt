@@ -1,0 +1,53 @@
+package cse22569;
+import java.util.*;
+class Even extends Thread{
+	int x;
+	public Even(int x) {
+		this.x=x;
+	}
+	public void run() {
+		System.out.println("number:"+x+" has square:"+x*x);
+	}
+}
+class Odd extends Thread{
+	int x;
+	public Odd(int x) {
+		this.x=x;
+	}
+	public void run() {
+		System.out.println("number:"+x+" has cube:"+x*x*x);
+	}
+}
+class MainThread extends Thread{
+	int num;
+	public void run() {
+		Random r=new Random();
+		try {
+			for(int i=0;i<=5;i++) {
+				num=r.nextInt(100);
+				System.out.println("Main Thread generated"+num);
+				if(num%2==0) {
+					Thread t1=new Thread(new Even(num));
+					t1.start();
+				}
+				else {
+					Thread t2=new Thread(new Odd(num));
+					t2.start();
+				}
+			}
+			Thread.sleep(1000000);
+		}
+		catch(InterruptedException ie) {
+			
+		}
+	}
+}
+public class Even_Odd_Threading {
+
+	public static void main(String[] args) {
+		MainThread m=new MainThread();
+		Thread t3=new Thread(m);
+		t3.start();
+	}
+
+}
