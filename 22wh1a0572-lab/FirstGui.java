@@ -1,4 +1,4 @@
-package java_third_lab;
+
 import java.awt.*;
 import java.awt.event.*;
 
