@@ -1,0 +1,57 @@
+package practice;
+
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+class Banner extends Frame implements Runnable {
+    String str = "BVRITH";
+    int rotationIndex = 0;
+
+    Banner() {
+        setVisible(true);
+        setLayout(null);
+        setSize(400, 100);
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+        Font font = new Font("Arial", Font.BOLD, 24);
+        g.setFont(font);
+        int x = 50;
+        for (int i = 0; i < str.length(); i++) {
+            g.drawString("" + str.charAt((rotationIndex + i) % str.length()), x, 50);
+            x += 40;
+        }
+    }
+
+    public void run() {
+        while (true) {
+            repaint();
+            try {
+                Thread.sleep(400);
+            } catch (InterruptedException ie) {
+                // Handle exception
+            }
+            rotationIndex = (rotationIndex + 1) % str.length();
+        }
+    }
+}
+
+public class Anime1 {
+    public static void main(String[] args) {
+        Banner b = new Banner();
+        b.setTitle("animation");
+        b.setVisible(true);
+        b.setSize(600, 600);
+        Thread t = new Thread(b);
+        t.start();
+        b.addWindowListener(new MyClass());
+    }
+
+    static class MyClass extends WindowAdapter {
+        public void windowClosing(WindowEvent we) {
+            System.exit(0);
+        }
+    }
+}
