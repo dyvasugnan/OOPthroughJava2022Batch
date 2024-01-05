@@ -1,0 +1,71 @@
+package cseb;
+import java.util.*;
+public class Quick_sort {
+	public static int Pivot(int a[],int low,int high) {
+		int pivot=a[low];
+		int i= low;
+		int j = high;
+		while(i<j) {
+			while(pivot>a[i]) {
+				i++;
+			}
+			while(pivot<a[j]) {
+				j--;
+			}
+			if(i<j) {
+				int temp;
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+		
+			
+				int temp;
+				temp=pivot;
+				pivot=a[j];
+				a[j]=temp;
+			
+			
+		
+		return j;
+		
+	}
+	public static void sort(int a[],int low,int high) {
+		if(low<high) {
+			int j=Pivot(a,low,high);
+			sort(a,low,j-1);
+			sort(a,j+1,high);
+			
+		}
+	}
+	public static void main(String[] args) {
+		int[] array = new int[10];
+		//int len=array.length;
+		System.out.println("enter");
+		Scanner sc = new Scanner(System.in);
+		int len=sc.nextInt();
+		for(int i=0;i<len;i++){
+			array[i]=sc.nextInt();
+		}
+		
+		sort(array,0,len-1);
+
+
+
+		for(int i=0;i<len;i++) {
+
+
+
+		System.out.print(array[i]+" ");
+
+
+
+		}
+
+		
+		
+		
+	}
+
+}
