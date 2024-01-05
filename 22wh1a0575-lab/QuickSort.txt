@@ -1,0 +1,51 @@
+import java.util.*;
+class Sorting{
+	void quicksort(int a[],int low,int high){
+		if(low<high) {
+			int j=pivot_pos(a,low,high);
+			quicksort(a,low,j-1);
+			quicksort(a,j+1,high);
+		}
+	}
+	int pivot_pos(int a[],int l,int h) {
+		int p=a[l];
+		int i=l;
+		int j=h;
+		while(i<j) {
+			while(p>a[i]) {
+				i++;
+			}
+			while(p<a[j]) {
+				j--;
+			}
+			if(i<j) {
+				int temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}			
+		}	
+		int temp=a[j];
+		a[j]=p;
+		p=temp;
+		return j;
+	}
+}
+public class QuickSort {
+	public static void main(String[] Args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter size :");
+		int size=sc.nextInt();
+		int arr[]=new int[size];
+		System.out.println("Enter array elements :");
+		for(int i=0;i<size;i++) {
+			arr[i]=sc.nextInt();
+		}
+		Sorting s=new Sorting();
+		//System.out.println("Array elements After Sorting :");
+		s.quicksort(arr,0,(size-1));
+		System.out.println("Array elements After Sorting :");
+		for(int i=0;i<size;i++) {
+			System.out.print(arr[i]+" ");
+		}	
+	}
+}
