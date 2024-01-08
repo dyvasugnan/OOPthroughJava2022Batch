@@ -1,0 +1,42 @@
+package csb;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyButton extends Frame implements ActionListener{
+	Button b1;
+	TextField t1;
+	MyButton(){
+		this.setLayout(null);
+		t1=new TextField(100);
+		t1.setBounds(100,100,100,50);
+		this.add(t1);
+		t1.addActionListener(this);
+		
+		b1 = new Button("SET");
+		b1.setBounds(100,200,100,50);
+		this.add(b1);
+		b1.addActionListener(this);     //get action and get source
+		
+	}
+	public void actionPerformed(ActionEvent ae) {
+	 b1.getActionCommand();
+	}
+}
+
+public class First {
+	public static void main(String[] args) {
+		MyButton f = new MyButton();
+		f.setTitle("Sample Frame");
+		f.setVisible(true);
+		f.setSize(400,400);
+		f.addWindowListener(new Demo());
+		
+	}
+
+}
+class Demo extends WindowAdapter
+{
+	public void windowClosing(WindowEvent we) {
+		System.exit(0);
+	}
+}
