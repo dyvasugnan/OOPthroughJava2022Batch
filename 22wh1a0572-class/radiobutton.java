@@ -1,4 +1,4 @@
-  import java.awt.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class Calci implements ItemListener {
@@ -7,6 +7,7 @@ public class Calci implements ItemListener {
 
     public Calci() {
         f = new Frame("CheckboxGroup Example");
+
         label = new Label();
         label.setAlignment(Label.CENTER);
         label.setSize(400, 100);
@@ -24,7 +25,7 @@ public class Calci implements ItemListener {
         f.setSize(400, 400);
         f.setLayout(null);
         f.setVisible(true);
-
+        f.addWindowListener(new Myclass());
         checkBox1.addItemListener(this);
         checkBox2.addItemListener(this);
     }
@@ -40,6 +41,11 @@ public class Calci implements ItemListener {
     }
 
     public static void main(String args[]) {
-        new Calci();
+      new Calci();
     }
+}
+class Myclass extends WindowAdapter{
+	public void WindowClosing(WindowEvent e) {
+		System.exit(0);
+	}
 }
