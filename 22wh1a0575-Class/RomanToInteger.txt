@@ -1,0 +1,53 @@
+class Solution {
+    public void romanToInt(String s) {
+        s = s.toUpperCase();
+        int sum = 0;
+        int i;
+        char ch[] = s.toCharArray();
+        for (i = (ch.length) - 1; i >= 0; i--) {
+            String y = String.valueOf(ch[i]);
+            String x = (i > 0) ? String.valueOf(ch[i - 1]) : "";
+            if (x.equals("I") && y.equals("V")) {
+                sum += 4;
+                i--;
+            } else if (x.equals("I") && y.equals("X")) {
+                sum += 9;
+                i--;
+            } else if (x.equals("X") && y.equals("L")) {
+                sum += 40;
+                i--;
+            } else if (x.equals("X") && y.equals("C")) {
+                sum += 90;
+                i--;
+            } else if (x.equals("C") && y.equals("D")) {
+                sum += 400;
+                i--;
+            } else if (x.equals("C") && y.equals("M")) {
+                sum += 900;
+                i--;
+            } else {
+                sum += Integer(ch[i]);
+            }
+        }
+        System.out.println(sum);
+    }
+
+    public int Integer(char roman) {
+        switch (roman) {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+            default: return 0;
+        }
+    }
+}
+class Roman{
+    public static void main(String[] args){
+        Solution s=new Solution();
+        s.romanToInt("XLMV");
+    }
+}
