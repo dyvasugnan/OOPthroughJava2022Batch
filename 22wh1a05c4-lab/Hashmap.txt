@@ -1,0 +1,44 @@
+package cse225c4;
+import java.io.*;
+import java.util.*;
+public class PhoneNumber {
+	static HashMap<String,String>book=new HashMap<>();
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		phoneNoSearch("C:\\Users\\cse\\Desktop\\Phonenumbers.txt");
+		System.out.println("enter your name I will give you phone number");
+		String key=sc.next();
+		String res=nametoNumber(key);
+		if(res!=null) {
+			System.out.print(res+" is phone number of  "+key);
+		}
+		else {
+			System.out.print("not found");
+		}
+		
+		
+
+	}
+	
+	public static void phoneNoSearch(String fname) {
+		try {
+		BufferedReader br=new BufferedReader(new FileReader(fname));
+		String line;
+		while((line=br.readLine())!=null) {
+			String[] x=line.split("\t");
+			String fname1=x[0];
+			String pnumber=x[1];
+			book.put(fname1, pnumber);
+		}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+	public static String nametoNumber(String key) {
+		return book.get(key);
+	}
+	
+
+}
