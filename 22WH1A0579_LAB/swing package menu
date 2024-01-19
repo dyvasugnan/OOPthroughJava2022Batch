@@ -1,0 +1,71 @@
+package cse22579;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
+
+import java.io.*;
+ import java.awt.event.*;
+class FrameDemo extends JFrame implements ActionListener{
+	JMenuBar mb;
+	JFileChooser jf;
+	JMenu file,edit,help,font;
+	JMenuItem op,sv,ext,ct,cp,pst;
+	JLabel l;
+	File f1;
+	FrameDemo(){
+		Container c=getContentPane();
+		c.setLayout(new BorderLayout());
+		mb=new JMenuBar();
+		c.add("North",mb);
+		file=new JMenu("file");
+		edit=new JMenu("edit");
+		help=new JMenu("help");
+		mb.add(file);
+		mb.add(edit);
+		mb.add(help);
+		op=new JMenuItem("open");
+		sv=new JMenuItem("save");
+		ext=new JMenuItem("exit");
+		file.add(op);
+		file.add(sv);
+		file.add(ext);
+		ct=new JMenuItem("cut");
+		cp=new JMenuItem("copy");
+		pst=new JMenuItem("paste");
+		edit.add(ct);
+		edit.add(cp);
+		edit.add(pst);
+		
+		
+		//sv.addActionListener(this);
+		//cp.setToolTipText("copy");
+		
+		file.addSeparator();
+		font=new JMenu("font");
+		file.add(font);
+		ext.setEnabled(false);
+		 l=new JLabel();
+		c.add(l);
+		op.addActionListener(this);
+		
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(op.isArmed()) {
+			//jf=new JFileChooser();
+		   jf=new JFileChooser(FileSystemView.getFileSystemView());
+			jf.showOpenDialog(null);
+			l.setText(jf.getSelectedFile().getAbsolutePath());
+	}}
+}
+public class FrameClass {
+	public static void main(String[] args) {
+		FrameDemo fd=new FrameDemo ();
+		fd.setSize(400,400);
+		fd.setVisible(true);
+		fd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+
+}
