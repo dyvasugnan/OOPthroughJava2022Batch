@@ -1,0 +1,70 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
+import java.io.*;
+
+class FrameDemo1 extends JFrame implements ActionListener{
+	File f1;
+	JMenuBar mb;
+	JLabel l;
+	JMenu file,edit,help,font;
+	JMenuItem op,sv,ext,ct,cp,pst;
+	JFileChooser jf;
+	
+	FrameDemo1(){
+		Container c = getContentPane();
+		c.setLayout(new BorderLayout());
+		mb = new JMenuBar();
+		c.add("North",mb);
+		file = new JMenu("File");
+		edit = new JMenu("Edit");
+		help = new JMenu("Help");
+		mb.add(file);
+		mb.add(edit);
+		mb.add(help);
+		//l = new JLabel();
+		//c.add(l);
+		op = new JMenuItem("Open");
+		sv = new JMenuItem("Save");
+		ext = new JMenuItem("Exit");
+		file.add(op);
+		op.setMnemonic('o');
+		file.add(sv);
+		file.add(ext);
+		ext.setEnabled(false);
+		file.addSeparator();
+		font = new JMenu("Font");
+		file.add(font);
+		op.addActionListener(this);
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(op.isArmed()) {
+			jf = new JFileChooser(FileSystemView.getFileSystemView());
+			int i = jf.showOpenDialog(null);
+			l.setText(jf.getSelectedFile().getAbsolutePath());
+			
+			if(i==JFileChooser.APPROVE_OPTION) {
+				f1 = jf.getSelectedFile();
+				String fname = f1.getPath();
+				NewFrame nf = new NewFrame(fname);
+				nf.setSize(400,400);
+				nf.setVisible(true);
+			}
+		}
+	}
+}
+
+public class FileChooserDemo {
+
+	public static void main(String[] args) {
+		FrameDemo1 fd = new FrameDemo1();
+		fd.setSize(400,400);
+		fd.setVisible(true);
+		fd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
