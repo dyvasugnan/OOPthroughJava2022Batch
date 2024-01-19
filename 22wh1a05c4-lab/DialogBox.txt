@@ -1,0 +1,33 @@
+package cse225c4;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import javax.swing.*;
+class Frame1 extends JFrame{
+	JLabel l;
+	Frame1(){
+		Container c=getContentPane();
+		c.setLayout(new BorderLayout());
+		l=new JLabel();
+		this.add(l);
+
+	}
+	public void paint(Graphics g) {
+		String name=JOptionPane.showInputDialog("enter your name");
+		g.drawString(name,200,200);
+	}
+}
+public class Dialog {
+	public static void main(String[] args) {
+		Frame1 f1 = new Frame1();
+	        f1.setSize(500, 500);
+	        f1.setVisible(true);
+	        
+		}
+}
