@@ -1,0 +1,51 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+public class FileChooser extends JFrame {
+
+    public FileChooser() {
+        setTitle("Menu Bar with File Chooser Example");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Create components
+        JTextArea textArea = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem openMenuItem = new JMenuItem("Open");
+
+        // Add action listener to the open menu item
+        openMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showOpenDialog(FileChooser.this);
+
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    // Here, you can handle the selected file as needed
+                    textArea.setText("Selected File: " + selectedFile.getAbsolutePath());
+                }
+            }
+        });
+
+        // Add components to the menu bar and frame
+        fileMenu.add(openMenuItem);
+        menuBar.add(fileMenu);
+        setJMenuBar(menuBar);
+        add(scrollPane, BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new FileChooser().setVisible(true);
+            }
+        });
+    }
+}
