@@ -1,0 +1,74 @@
+package threading;
+import javax.swing.*;
+import javax.swing.filechooser.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+class FrameDemo extends JFrame implements ActionListener{
+	JButton b;
+	Label l;
+	File f1;
+	JMenuBar mb;
+	JMenu file,edit,help,font;
+	JMenuItem op,sv,ct,cp,pst,ext;
+	FrameDemo()
+	{
+		Container c = getContentPane();
+		c.setLayout(new BorderLayout());
+		mb = new JMenuBar();
+		c.add("North",mb);
+		file = new JMenu("File");
+		edit = new JMenu("Edit");
+		help = new JMenu("Help");
+		mb.add(help);
+		mb.add(edit);
+		mb.add(file);
+		op = new JMenuItem("open");
+		sv = new JMenuItem("Save");
+		ext = new JMenuItem("Exit");
+		file.add(op);
+		op.setMnemonic('O');
+		file.add(sv);
+		file.add(ext);
+		ext.setEnabled(false);
+		file.addSeparator();
+		font = new JMenu("Font");
+		file.add(font);
+		Label l = new Label();
+		c.add(l);
+		op.addActionListener(this);
+		sv.addActionListener(this);
+		b = new JButton("Save");
+		c.add(b);
+		b.setToolTipText("This is button");
+		b.setMnemonic('s');
+		b.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		if(op.isArmed()) {
+		JFileChooser jf = new JFileChooser(FileSystemView.getFileSystemView());
+	    jf.showOpenDialog(null);
+	    l.setText(jf.getSelectedFile().getAbsolutePath());
+	    int i = jf.showOpenDialog(null);
+	    if(i == JFileChooser.APPROVE_OPTION) {
+	    	 f1 = jf.getSelectedFile();
+	    	String fname = f1.getPath();
+	    	Frame nf = new Frame("fname");
+	    	nf.setSize(500,500);
+	    	nf.setVisible(true);
+	    	
+	    }
+		}
+	}
+}
+public class MyFrame {
+	public static void main(String[] args)
+	{
+		FrameDemo f = new FrameDemo();
+		f.setSize(500,500);
+		f.setVisible(true);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}
