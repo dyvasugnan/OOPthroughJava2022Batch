@@ -1,0 +1,76 @@
+package Manvitha;
+import java.awt.*;
+import javax.swing.*;
+import java.io.*;
+import javax.swing.filechooser.FileSystemView;
+
+import java.awt.event.*;
+class MenuExplore2 extends JFrame implements ActionListener{
+	Button b;
+	JMenuBar mb;
+	JFileChooser jf;
+	JLabel l;
+	File fl;
+	JMenu File,edit,help,font;
+	JMenuItem op,sv,ct,cp,pst;
+	MenuExplore2(){
+		
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		mb = new JMenuBar();
+		c.add("North" , mb);
+		File = new JMenu("File");
+		edit = new JMenu("Edit");
+		help = new JMenu("Help");
+		font = new JMenu("Font");
+		mb.add(File);
+		mb.add(edit);
+		mb.add(help);
+		mb.add(font);
+		op = new JMenuItem("Open");
+		sv = new JMenuItem("Save");
+		ct = new JMenuItem("Cut");
+		cp = new JMenuItem("copy");
+		pst = new JMenuItem("Paste");
+		
+		l = new JLabel();
+		File.add(op);
+		File.add(sv);
+		File.add(ct);
+		File.add(cp);
+		File.add(pst);
+		
+		op.addActionListener(this);
+//		c.add(b);
+		b = new Button("Clikc");
+		c.add(b);
+		c.add(l);
+//		b.setToolTipText("hey");
+//		b.setMnemonic('s');
+		b.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if(op.isArmed())
+			jf = new JFileChooser(FileSystemView.getFileSystemView());
+		jf.showOpenDialog(null);
+		int i = jf.showOpenDialog(null) ;
+		if(i == JFileChooser.APPROVE_OPTION) {
+			fl = jf.getSelectedFile();
+			String fname = fl.getPath();
+              NewFrame n = new NewFrame(fname);
+              n.setSize(500,500);
+              n.setVisible(true);
+              
+		}
+			
+		
+	}
+}
+public class MenuExplore {
+    public static void main(String [] args) {
+    	MenuExplore2 f = new MenuExplore2();
+    	f.setSize(400,400);
+    	f.setVisible(true);
+    	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
