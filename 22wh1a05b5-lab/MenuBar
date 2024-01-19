@@ -1,0 +1,62 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MenuBar {
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Menu Bar	");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            JMenuBar menuBar = new JMenuBar();
+
+            JMenu fileMenu = new JMenu("File");
+            JMenuItem newItem = new JMenuItem("New");
+            JMenuItem openItem = new JMenuItem("Open");
+            JMenuItem saveItem = new JMenuItem("Save");
+            JMenuItem exitItem = new JMenuItem("Exit");
+
+            fileMenu.add(newItem);
+            fileMenu.add(openItem);
+            fileMenu.add(saveItem);
+            fileMenu.addSeparator(); // Separator line
+            fileMenu.add(exitItem);
+
+            JMenu editMenu = new JMenu("Edit");
+            JMenuItem cutItem = new JMenuItem("Cut");
+            JMenuItem copyItem = new JMenuItem("Copy");
+            JMenuItem pasteItem = new JMenuItem("Paste");
+
+            editMenu.add(cutItem);
+            editMenu.add(copyItem);
+            editMenu.add(pasteItem);
+
+            // Action listeners for menu items
+            exitItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(0);
+                }
+            });
+
+            newItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(frame, "New File Created");
+                }
+            });
+
+            // Add menus to the menu bar
+            menuBar.add(fileMenu);
+            menuBar.add(editMenu);
+
+            // Set the menu bar for the frame
+            frame.setJMenuBar(menuBar);
+
+            frame.setSize(400, 300);
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        });
+    }
+}
