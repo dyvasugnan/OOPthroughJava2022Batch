@@ -1,0 +1,20 @@
+public class Solution {
+    public int majorityElement(final int[] A) {
+        int majorityElement = A[0];
+        int count = 1;
+
+        for (int i = 1; i < A.length; i++) {
+            if (A[i] == majorityElement) {
+                count++;
+            } else {
+                count--;
+                if (count == 0) {
+                    majorityElement = A[i];
+                    count = 1;
+                }
+            }
+        }
+
+        return majorityElement;
+    }
+}

@@ -1,0 +1,19 @@
+import java.util.*;
+import java.io.*;
+class Main{
+    public static void main(String[]args) throws IOException{
+       int i;
+       InputStreamReader isr=new InputStreamReader(System.in);
+       BufferedReader br=new BufferedReader(isr);
+       String str=br.readLine();
+       StringTokenizer st=new StringTokenizer(str," ");
+       String str1=" ";
+       while(st.hasMoreTokens()){
+           String s1=st.nextToken();
+           char c=Character.toUpperCase(s1.charAt(0));
+           String s2=s1.replace(s1.charAt(0),c);
+           System.out.print(str1+" "+s2);
+       }
+       
+    }
+}
