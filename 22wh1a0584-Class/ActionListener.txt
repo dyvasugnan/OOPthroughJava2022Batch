@@ -1,0 +1,23 @@
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
+public class ClickTextFieldAppears {
+	public static void main (String[] args) {
+		JFrame f=new JFrame();
+		JButton b=new JButton("Click here");
+		final TextField tf=new TextField();
+		tf.setBounds(150, 150, 100, 200);
+		
+		b.setBounds(50, 50, 100, 200);
+		b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			tf.setText("Have confidence in yourself , I mean this quote is just for you, It is made for you");
+			}});
+		
+		f.add(tf);
+		f.add(b);
+		f.setSize(500, 500);
+		f.setVisible(true);
+	}
+
+}

@@ -1,0 +1,12 @@
+import javax.swing.*;
+public class Newframe{
+	public static void main(String[] args) {
+		JFrame f=new JFrame();
+		JButton b=new JButton("Submit");
+		b.setBounds(50, 60, 100, 50);
+		f.add(b);
+		f.setSize(400,400);
+		f.setLayout(null);
+		f.setVisible(true);
+	}
+}

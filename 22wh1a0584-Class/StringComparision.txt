@@ -1,0 +1,15 @@
+import java.util.*;
+import java.lang.*;
+public class String_Comparision_substring {
+
+	public static void main(String[] args) {
+		String sentence="My name is Trishna";
+		String name=sentence.substring(11,sentence.length());
+		System.out.println(sentence.substring(5));
+		
+		String name1="Apple";
+		String name2="zanana";
+		System.out.println(name1.compareTo(name2));
+	}
+
+}
