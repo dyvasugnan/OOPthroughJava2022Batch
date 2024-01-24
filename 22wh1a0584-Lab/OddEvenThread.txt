@@ -1,0 +1,38 @@
+package mygui;
+import java.io.*;
+class Odd extends Thread{
+	public void run() {
+		for(int i=0;i<=1000;i+=2) {
+			System.out.print(i+" ");
+		}
+		try {
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException ie) {
+			System.out.print(ie);
+		}
+	}
+}
+class Even extends Thread{
+	public void run() {
+		for(int i=1;i<=1000;i+=2) {
+			System.out.print(i+" ");
+		}
+		try {
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException ie) {
+			System.out.print(ie);
+		}
+	}
+}
+class Single_thread_task{
+	public static void main(String[]args) {
+		Odd t1=new Odd();
+		Even t2=new Even();
+		Thread x1=new Thread(t1);
+		Thread x2=new Thread(t2);
+		x1.start();
+		x2.start();
+	}
+}
