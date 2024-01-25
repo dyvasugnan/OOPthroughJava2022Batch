@@ -1,0 +1,97 @@
+package cseb;
+
+import java.util.*;
+
+public class Quicksort {
+
+	static int pivot_pos(int arr[],int low,int high) {
+
+		int pivot = arr[low];
+
+		int temp;
+
+		int i = low + 1;
+
+		int j = high;
+
+		while(i <= j) {
+
+			while(i <= high && pivot > arr[i]) {
+
+				i++;
+
+			}
+
+			while(j > low && pivot < arr[j]) {
+
+				j--;
+
+			}
+
+			if(i < j) {
+
+				temp = arr[i];
+
+				arr[i] = arr[j];
+
+				arr[j] = temp;
+
+			}
+
+			}
+
+		arr[low] = arr[j];
+
+        arr[j] = pivot;
+
+		return j;
+
+		
+
+	}
+
+	static void QuickSort(int a[],int low,int high) {
+
+		if( low < high) {
+
+		int j = pivot_pos(a,low,high);
+
+		QuickSort(a,low,j - 1);
+
+		QuickSort(a,j + 1,high);
+
+	}
+
+	}
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		Scanner sc =  new Scanner(System.in);
+
+		System.out.println("enter the size: ");
+
+		int n = sc.nextInt();
+
+		int arr[] = new int[n];
+
+		System.out.println("enter the array elemnts:");
+
+		for(int i = 0;i<n;i++) {
+
+			arr[i] = sc.nextInt();
+
+		}
+
+		int low = 0;
+
+		int high = n - 1;
+
+		QuickSort(arr,low,high);
+
+		System.out.println(Arrays.toString(arr));
+
+}
+
+}
