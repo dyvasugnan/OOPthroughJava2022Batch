@@ -1,0 +1,104 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.file.FileSystem;
+
+import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
+class J1FrameDemo extends JFrame implements ActionListener{
+	JMenuBar mb;
+	JMenu file,edit,help,font;
+	JMenuItem op,sv,ext,ct,cp,pst;
+	JFileChooser jf;
+	File f1;
+	JLabel l;
+	J1FrameDemo(){
+		Container c=getContentPane();
+		c.setLayout(new BorderLayout());
+		mb=new JMenuBar();
+		c.add("North",mb);
+		l=new JLabel();
+		c.add(l);
+		file=new JMenu("File");
+		edit=new JMenu("Edit");
+		help=new JMenu("Help");
+		mb.add(file);
+		mb.add(edit);
+		mb.add(help);
+		op=new JMenuItem("Open");
+		sv=new JMenuItem("Save");
+		ext=new JMenuItem("Exit");
+		ct=new JMenuItem("Cut");
+		cp=new JMenuItem("Copy");
+		pst=new JMenuItem("Paste");
+		edit.add(ct);
+		edit.add(cp);
+		edit.add(pst);
+		file.add(op);
+		op.setMnemonic('o');
+		file.add(sv);
+		file.add(ext);
+		ext.setEnabled(false);
+		file.addSeparator();
+		font = new JMenu("Font");
+		file.add(font);
+		op.addActionListener(this);
+	}
+	
+
+	public void actionPerformed(ActionEvent ae) {
+		if(op.isArmed()) {
+			jf=new JFileChooser(FileSystemView.getFileSystemView());
+			int i=jf.showOpenDialog(null);
+			//l.setText(jf.getSelectedFile().getAbsolutePath());
+			if(i==JFileChooser.APPROVE_OPTION) {
+				f1=jf.getSelectedFile();
+				String fname=f1.getPath();
+				NewFrame nf=new NewFrame(fname);
+					nf.setSize(400,400);
+					nf.setVisible(true);
+			}
+		}
+	}
+}
+public class DisplayingFileContent_GUI {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		J1FrameDemo fd=new J1FrameDemo();
+        fd.setSize(400,400);
+        fd.setVisible(true);
+        fd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import javax.swing.*;
+public class NewFrame extends JFrame {
+	JTextArea ta;
+	NewFrame(String fname){
+		Container c=getContentPane();
+		c.setLayout(new BorderLayout());
+		ta=new JTextArea(15,30);
+		c.add(ta);
+		String s= " ";
+		String s1=" ";
+		try {
+			BufferedReader br=new BufferedReader(new FileReader(fname));
+			while((s=br.readLine())!=null) {
+				s1+=s+" ";
+				ta.setText(s1);
+				br.close();
+			}
+		}
+		catch(Exception e) {
+			
+		}
+	}
+
+}
