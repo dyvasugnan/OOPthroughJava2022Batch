@@ -1,0 +1,85 @@
+package cseb;
+
+import java.io.*;
+
+class Mythread extends Thread{
+
+	static int count = 1;
+
+	int rem;
+
+	static Object lock = new Object();
+
+	Mythread(int r){
+
+		rem = r;
+
+	}
+
+	void print() {
+
+		System.out.println(Thread.currentThread().getName() + " " + count++);
+
+	}
+
+	public void run() {
+
+		for(int i = 1;i<=10;i++) {
+
+			private void Synchronized(lock){
+
+				while(count % 2 != rem) {
+
+					try {
+
+						lock.wait();
+
+					}
+
+					catch(InterruptedException ie) {
+
+						System.out.println(ie);
+
+					}
+
+					print();
+
+					lock.notifyAll();	
+
+			}
+
+			}
+
+		}
+
+	}
+
+}
+
+	
+
+public class even_odd {
+
+	public static void main(String[] args) throws IOException {
+
+		// TODO Auto-generated method stub
+
+		Mythread obj1 = new Mythread("Even thread ");
+
+		Mythread obj2 = new Mythread("Odd thread ");
+
+		Thread t1 = new Thread(obj1);
+
+		Thread t2 = new Thread(obj2);
+
+		t1.start();
+
+		t2.start();
+
+
+
+	}
+
+
+
+}
